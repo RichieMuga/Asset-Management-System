@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
+body {
+  background-color: #e1e1e1;
+  margin: 0%;
+  border: 0%;
+}
+
+li {
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background-color: #02577a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.header .header-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+}
+
+.header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header a {
+  padding: 0 1em;
+}
+
+.header .svg-phone {
+  color: white;
+}
+
+.header hr {
+  border: solid 2rem;
+  width: 100%;
+  display: none;
+}
+
+.header-content {
+  color: #e1e1e1;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+$base-color:  rgb(2, 87, 122);
+$secondary-color:rgb(137,214,251);
+$background-color:rgb(225,225,225);
+$font-white:rgb(225,225,225);
+$font-black:rgb(0,0,0);
+body{
+    background-color:$background-color;
+    margin: 0%;
+    border: 0%;
+}
+li{
+        list-style: none;
+        margin: 0%;
+        padding: 0%;
+}
+a{
+    text-decoration: none;
+}
+
+
+.header{
+    background-color: $base-color;
+    display: flex;
+    padding: 1em;
+    justify-content: space-around;
+    
+    .header-list{
+        display: flex;
+        padding: 1em;
+    }
+
+    ul{
+        display: flex;
+        }
+    a{
+        padding: 0 1em;
+        }
+    .svg-phone{
+    color: white;
+    }
+    hr{
+    border: solid 2rem;
+    width: 100%;
+    display: none;
+}
+}
+
+.header-content{
+    color: $font-white;
+}
