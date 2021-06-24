@@ -13,9 +13,13 @@ li {
 
 a {
   text-decoration: none;
+  margin: 0%;
+  padding: 0%;
 }
 
 .header {
+  height: 3em;
+  width: auto;
   background-color: #02577a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,31 +29,33 @@ a {
       justify-content: space-around;
 }
 
-.header .header-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1em;
-}
-
 .header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header .svg-container {
+  position: absolute;
+  top: 1.4rem;
+  right: 2rem;
+  bottom: 1rem;
+}
+
+.header .svg-container span {
+  position: relative;
+  right: 0.3rem;
+  top: -0.7rem;
+  bottom: 1rem;
+  left: 0rem;
 }
 
 .header a {
   padding: 0 1em;
-}
-
-.header .svg-phone {
-  color: white;
-}
-
-.header hr {
-  border: solid 2rem;
-  width: 100%;
-  display: none;
 }
 
 .header-content {
