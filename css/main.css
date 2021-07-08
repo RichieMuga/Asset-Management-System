@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
 body {
   background-color: #e1e1e1;
-  margin: 0%;
-  border: 0%;
+  margin: 0;
+  height: 100vh;
+  width: auto;
 }
 
 li {
@@ -14,51 +15,86 @@ li {
 a {
   text-decoration: none;
   margin: 0%;
-  padding: 0%;
 }
 
 .header {
-  height: 3em;
-  width: auto;
-  background-color: #02577a;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+  -ms-grid-rows: 1fr 0.25fr;
+      grid-template-rows: 1fr 0.25fr;
+}
+
+.header .header-child-1 {
+  background: #02577a;
+}
+
+.header .header-child-1 .logo {
+  float: left;
+  margin: 0.75em 5em;
+  margin-top: 1.4em;
+}
+
+.header .header-child-2 {
+  background: #02577a;
+}
+
+.header .header-child-2 .header-content {
+  color: white;
+}
+
+.header .header-child-2 ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1em;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.33em;
+  padding-right: 5em;
+  line-height: 1.7em;
 }
 
-.header ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+.header .header-child-3 {
+  background: #02577a;
 }
 
-.header .svg-container {
-  position: absolute;
-  top: 1.4rem;
-  right: 2rem;
-  bottom: 1rem;
-}
-
-.header .svg-container span {
+.header .header-child-3 button {
   position: relative;
-  right: 0.3rem;
-  top: -0.7rem;
-  bottom: 1rem;
-  left: 0rem;
+  top: 0.2em;
+  right: 4em;
+  height: 2em;
+  width: 16em;
+  border-radius: 0.8em;
+  font-size: 1.1em;
+  background: white;
+  border: none;
+  padding: 1em;
+  line-height: 0em;
 }
 
-.header a {
-  padding: 0 1em;
+.header .header-child-3 button :hover {
+  color: white;
 }
 
-.header-content {
-  color: #e1e1e1;
+.header .header-child-3 button span {
+  position: relative;
+  bottom: 0.9em;
+  color: #02577a;
+}
+
+.header .header-child-3 button .btn-mail {
+  position: relative;
+  bottom: 0.6em;
+  right: 0.3em;
+}
+
+.outside-parent-header {
+  background: #89d6fb;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / span 3;
+  height: 0.3em;
 }
 /*# sourceMappingURL=main.css.map */

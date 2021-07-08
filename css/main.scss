@@ -2,12 +2,13 @@
 $base-color: rgb(2, 87, 122);
 $secondary-color: rgb(137, 214, 251);
 $background-color: rgb(225, 225, 225);
-$font-white: rgb(225, 225, 225);
+$font-white: rgb(255, 255, 255);
 $font-black: rgb(0, 0, 0);
 body {
   background-color: $background-color;
-  margin: 0%;
-  border: 0%;
+  margin: 0;
+  height: 100vh;
+  width: auto;
 }
 li {
   list-style: none;
@@ -17,41 +18,66 @@ li {
 a {
   text-decoration: none;
   margin: 0%;
-  padding: 0%;
 }
 
 .header {
-  height: 3em;
-  width: auto;
-  background-color: $base-color;
-  display: flex;
-  padding: 1em;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 0.25fr;
 
-  ul {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .svg-container {
-    position: absolute;
-    top: 1.4rem;
-    right: 2rem;
-    bottom: 1rem;
-
-    span {
-      position: relative;
-      right: 0.3rem;
-      top: -0.7rem;
-      bottom: 1rem;
-      left: 0rem;
+  .header-child-1 {
+    background: $base-color;
+    .logo {
+      float: left;
+      margin: 0.75em 5em;
+      margin-top: 1.4em;
     }
   }
-  a {
-    padding: 0 1em;
+  .header-child-2 {
+    background: $base-color;
+    .header-content {
+      color: $font-white;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.33em;
+      padding-right: 5em;
+      line-height: 1.7em;
+    }
+  }
+  .header-child-3 {
+    background: $base-color;
+    button {
+      position: relative;
+      top: 0.2em;
+      right: 4em;
+      height: 2em;
+      width: 16em;
+      border-radius: 0.8em;
+      font-size: 1.1em;
+      background: $font-white;
+      border: none;
+      padding: 1em;
+      line-height: 0em;
+      :hover {
+        color: $font-white;
+      }
+      span {
+        position: relative;
+        bottom: 0.9em;
+        color: $base-color;
+      }
+      .btn-mail {
+        position: relative;
+        bottom: 0.6em;
+        right: 0.3em;
+      }
+    }
   }
 }
-
-.header-content {
-  color: $font-white;
+.outside-parent-header {
+  background: $secondary-color;
+  grid-column: 1 / span 3;
+  height: 0.3em;
 }
