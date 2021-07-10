@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
 body {
-  background-color: #e1e1e1;
+  background-color: #ffffff;
   margin: 0;
   height: 100vh;
   width: auto;
@@ -20,8 +20,8 @@ a {
 .header {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr;
+  -ms-grid-columns: 0.5fr 4fr 1fr;
+      grid-template-columns: 0.5fr 4fr 1fr;
   -ms-grid-rows: 1fr 0.25fr;
       grid-template-rows: 1fr 0.25fr;
 }
@@ -96,5 +96,185 @@ a {
   -ms-grid-column-span: 3;
   grid-column: 1 / span 3;
   height: 0.3em;
+}
+
+.introduction {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 0.1fr;
+      grid-template-columns: 1fr 1fr 0.1fr;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.introduction .introduction-child-1 {
+  background: #ffffff;
+  justify-items: space-around;
+}
+
+.introduction .introduction-child-1 h1 {
+  text-align: center;
+}
+
+.introduction .introduction-child-1 #waving {
+  height: 200vh;
+}
+
+.introduction .introduction-child-1 #type-animation {
+  color: black;
+  text-decoration: underline;
+}
+
+.introduction .introduction-child-1 .ityped-cursor {
+  color: black;
+  font-size: 2.2rem;
+  opacity: 1;
+  -webkit-animation: blink 0.3s infinite;
+          animation: blink 0.3s infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes blink {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  100% {
+    opacity: 0;
+  }
+}
+
+.introduction .introduction-child-1 .waving {
+  display: block;
+  margin: auto;
+}
+
+.introduction .introduction-child-1 #Waving-hand {
+  -webkit-animation: waving-motion 2s ease-in-out infinite alternate;
+          animation: waving-motion 2s ease-in-out infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform-box: fill-box;
+}
+
+.introduction .introduction-child-1 #Head {
+  -webkit-animation: waving-head 3s ease-in-out infinite alternate;
+          animation: waving-head 3s ease-in-out infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform-box: fill-box;
+}
+
+@-webkit-keyframes waving-motion {
+  100% {
+    -webkit-transform: rotatez(-18deg);
+            transform: rotatez(-18deg);
+  }
+}
+
+@keyframes waving-motion {
+  100% {
+    -webkit-transform: rotatez(-18deg);
+            transform: rotatez(-18deg);
+  }
+}
+
+@-webkit-keyframes waving-head {
+  50% {
+    -webkit-transform: rotatez(11deg);
+            transform: rotatez(11deg);
+  }
+  100% {
+    -webkit-transform: rotatez(-11deg);
+            transform: rotatez(-11deg);
+  }
+}
+
+@keyframes waving-head {
+  50% {
+    -webkit-transform: rotatez(11deg);
+            transform: rotatez(11deg);
+  }
+  100% {
+    -webkit-transform: rotatez(-11deg);
+            transform: rotatez(-11deg);
+  }
+}
+
+.introduction .introduction-child-2 {
+  background: #ffffff;
+}
+
+.introduction .introduction-child-2 h2,
+.introduction .introduction-child-2 p {
+  color: black;
+}
+
+.introduction .introduction-child-2 h2 {
+  font-size: 3.2em;
+}
+
+.introduction .introduction-child-2 p {
+  font-size: 1.3em;
+}
+
+.downArrow {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 90%;
+  left: 25%;
+  -webkit-animation: bounce 3s infinite;
+          animation: bounce 3s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-0.4em);
+            transform: translateY(-0.4em);
+  }
+  60% {
+    -webkit-transform: translateY(-0.4em);
+            transform: translateY(-0.4em);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-0.4em);
+            transform: translateY(-0.4em);
+  }
+  60% {
+    -webkit-transform: translateY(-0.4em);
+            transform: translateY(-0.4em);
+  }
+}
+
+.downArrow .services-page {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.1fr 1fr 1fr;
+      grid-template-columns: 0.1fr 1fr 1fr;
 }
 /*# sourceMappingURL=main.css.map */
