@@ -183,11 +183,23 @@ a {
       transform: translateY(-0.4em);
     }
   }
+}
+//services heading
+.service-head {
+  text-align: center;
+  margin-top: 3em;
+  color: black;
+}
+//services page
 
-  //services page
-
-  .services-page {
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 1fr;
+.services-page {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr;
+  .services-page-child-1 {
+    background-color: red;
+  }
+  .services-page-child-2 {
+    background-color: black;
   }
 }
