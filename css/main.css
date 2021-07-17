@@ -273,8 +273,9 @@ a {
 
 .service-head {
   text-align: center;
-  margin: 5em 0em;
+  margin-top: 5em;
   color: #02577a;
+  font-size: 1.5em;
 }
 
 .services-page {
@@ -284,10 +285,29 @@ a {
       grid-template-columns: 0.1fr 1fr 1fr;
   -ms-grid-rows: 2fr 2fr;
       grid-template-rows: 2fr 2fr;
+  height: 95%;
 }
 
 .services-page .services-page-child-2 p {
   color: black;
   font-size: 1.4em;
+}
+
+.Testimonials {
+  -ms-grid-columns: 1fr 5fr 1fr;
+      grid-template-columns: 1fr 5fr 1fr;
+}
+
+.Testimonials .Testimonial-heading-container {
+  background-color: #89d6fb;
+  height: 4em;
+}
+
+.Testimonials .Testimonial-heading-container h1 {
+  display: block;
+  color: #02577a;
+  text-align: center;
+  font-size: 2.1em;
+  line-height: 1.9;
 }
 /*# sourceMappingURL=main.css.map */
