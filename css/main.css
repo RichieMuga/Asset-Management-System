@@ -20,8 +20,8 @@ a {
 .header {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.5fr 4fr 1fr;
-      grid-template-columns: 0.5fr 4fr 1fr;
+  -ms-grid-columns: 12.5em 4fr 1fr;
+      grid-template-columns: 12.5em 4fr 1fr;
   -ms-grid-rows: 1fr 0.25fr;
       grid-template-rows: 1fr 0.25fr;
 }
@@ -32,7 +32,7 @@ a {
 
 .header .header-child-1 .logo {
   float: left;
-  margin: 0.75em 5em;
+  margin: 0.75em 2em;
   margin-top: 1.4em;
 }
 
@@ -48,9 +48,8 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   font-size: 1.33em;
   padding-right: 5em;
   line-height: 1.7em;
@@ -63,7 +62,7 @@ a {
 .header .header-child-3 button {
   position: relative;
   top: 0.2em;
-  right: 4em;
+  right: 2em;
   height: 2em;
   width: 16em;
   border-radius: 0.8em;

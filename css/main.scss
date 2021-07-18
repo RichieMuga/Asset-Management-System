@@ -22,13 +22,14 @@ a {
 
 .header {
   display: grid;
-  grid-template-columns: 0.5fr 4fr 1fr;
+  grid-template-columns: 12.5em 4fr 1fr;
   grid-template-rows: 1fr 0.25fr;
   .header-child-1 {
     background: $base-color;
+
     .logo {
       float: left;
-      margin: 0.75em 5em;
+      margin: 0.75em 2em;
       // for tablet size margin-left: 0.9em;
       margin-top: 1.4em;
     }
@@ -40,7 +41,7 @@ a {
     }
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       font-size: 1.33em;
       padding-right: 5em;
       line-height: 1.7em;
@@ -51,7 +52,7 @@ a {
     button {
       position: relative;
       top: 0.2em;
-      right: 4em;
+      right: 2em;
       height: 2em;
       width: 16em;
       border-radius: 0.8em;
