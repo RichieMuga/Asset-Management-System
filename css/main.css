@@ -292,6 +292,10 @@ a {
   font-size: 1.4em;
 }
 
+.services-page .services-page-child-2 ul {
+  margin-bottom: 3em;
+}
+
 .Testimonials {
   -ms-grid-columns: 1fr 5fr 1fr;
       grid-template-columns: 1fr 5fr 1fr;
@@ -308,5 +312,72 @@ a {
   text-align: center;
   font-size: 2.1em;
   line-height: 1.9;
+}
+
+.Testimonials .Testimonial-child-1 {
+  height: 80vh;
+  background: #02577a;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
+}
+
+.Testimonials .Testimonial-child-1 h3 {
+  margin: 2em 4em 1em 4em;
+  text-align: left;
+  font-size: 1.6em;
+}
+
+.Testimonials .Testimonial-child-1 .images {
+  border-radius: 100%;
+  height: 20%;
+  width: 5%;
+  margin-top: 0em;
+}
+
+.Testimonials .Testimonial-child-1 .gird-1 .arrow-left {
+  width: 0;
+  height: 0;
+  background-color: #02577a;
+  border-top: 25px solid transparent;
+  border-right: 50px solid #89d6fb;
+  border-bottom: 25px solid transparent;
+  border-left: #ffffff;
+  position: relative;
+  top: 40%;
+  right: 25;
+  border-radius: 10%;
+}
+
+.Testimonials .Testimonial-child-1 .gird-1 .quote-1 {
+  position: relative;
+  right: 50%;
+  font-size: 4rem;
+}
+
+.Testimonials .Testimonial-child-1 .grid-3 .arrow-right {
+  width: 0;
+  height: 0;
+  background-color: #02577a;
+  border-top: 25px solid transparent;
+  border-left: 50px solid #89d6fb;
+  border-bottom: 25px solid transparent;
+  border-right: #ffffff;
+  position: relative;
+  bottom: 10%;
+  left: 43%;
+  border-radius: 10%;
+}
+
+.Testimonials .Testimonial-child-1 .grid-3 .quote-2 {
+  position: relative;
+  left: 40%;
+  font-size: 4rem;
+}
+
+.Testimonials .Testimonial-child-2 {
+  background: black;
 }
 /*# sourceMappingURL=main.css.map */
