@@ -332,12 +332,12 @@ a {
 
 .Testimonials .Testimonial-child-1 .images {
   border-radius: 100%;
-  height: 20%;
-  width: 5%;
-  margin-top: 0em;
+  height: 18%;
+  width: 10%;
+  padding-top: 2em;
 }
 
-.Testimonials .Testimonial-child-1 .gird-1 .arrow-left {
+.Testimonials .Testimonial-child-1 .grid-1 .arrow-left {
   width: 0;
   height: 0;
   background-color: #02577a;
@@ -346,14 +346,15 @@ a {
   border-bottom: 25px solid transparent;
   border-left: #ffffff;
   position: relative;
-  top: 40%;
-  right: 25;
+  top: 44%;
+  left: 22%;
   border-radius: 10%;
 }
 
-.Testimonials .Testimonial-child-1 .gird-1 .quote-1 {
+.Testimonials .Testimonial-child-1 .grid-1 .quote-1 {
   position: relative;
-  right: 50%;
+  top: 5%;
+  left: 50%;
   font-size: 4rem;
 }
 
@@ -366,15 +367,16 @@ a {
   border-bottom: 25px solid transparent;
   border-right: #ffffff;
   position: relative;
-  bottom: 10%;
-  left: 43%;
+  top: 44%;
+  right: 22%;
   border-radius: 10%;
 }
 
 .Testimonials .Testimonial-child-1 .grid-3 .quote-2 {
   position: relative;
-  left: 40%;
+  right: 80%;
   font-size: 4rem;
+  top: 30%;
 }
 
 .Testimonials .Testimonial-child-2 {
