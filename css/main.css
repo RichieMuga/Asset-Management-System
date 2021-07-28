@@ -315,7 +315,8 @@ a {
 }
 
 .Testimonials .Testimonial-child-1 {
-  height: 80vh;
+  height: auto;
+  width: 100%;
   background: #02577a;
   text-align: center;
   display: -ms-grid;
@@ -324,11 +325,24 @@ a {
       grid-template-columns: 1fr 6fr 1fr;
 }
 
+.Testimonials .Testimonial-child-1 .grid-2 .slide-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  width: 850vh;
+}
+
+.Testimonials .Testimonial-child-1 .grid-2 .slide-row .slide-column {
+  position: relative;
+}
+
 .Testimonials .Testimonial-child-1 .grid-2 .slide-row .slide-column h3 {
   margin: 2em 4em 3em 4em;
   text-align: left;
   font-size: 1.6em;
   font-weight: 300;
+  word-wrap: break-word;
 }
 
 .Testimonials .Testimonial-child-1 .grid-2 .slide-row .slide-column .images {
@@ -352,15 +366,16 @@ a {
   border-bottom: 25px solid transparent;
   border-left: #ffffff;
   position: relative;
-  top: 44%;
+  top: 4%;
   left: 22%;
   border-radius: 10%;
+  cursor: pointer;
 }
 
 .Testimonials .Testimonial-child-1 .grid-1 .quote-1 {
   position: relative;
-  top: 5%;
-  left: 50%;
+  bottom: 9%;
+  left: 1.5em;
   font-size: 4rem;
 }
 
@@ -372,17 +387,18 @@ a {
   border-left: 50px solid #89d6fb;
   border-bottom: 25px solid transparent;
   border-right: #ffffff;
-  position: relative;
-  top: 44%;
-  right: 22%;
+  position: absolute;
+  top: 110em;
+  left: 95em;
   border-radius: 10%;
+  cursor: pointer;
 }
 
 .Testimonials .Testimonial-child-1 .grid-3 .quote-2 {
-  position: relative;
-  right: 80%;
+  position: absolute;
   font-size: 4rem;
-  top: 30%;
+  top: 24em;
+  left: 19em;
 }
 
 .Testimonials .Testimonial-child-2 {

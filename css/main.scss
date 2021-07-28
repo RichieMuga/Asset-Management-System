@@ -228,19 +228,26 @@ a {
     }
   }
   .Testimonial-child-1 {
-    height: 80vh;
+    height: auto;
+    width: 100%;
+    // overflow: hidden;
     background: $base-color;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 6fr 1fr;
     .grid-2 {
       .slide-row {
+        display: flex;
+        height: 80vh;
+        width: 850vh;
         .slide-column {
+          position: relative;
           h3 {
             margin: 2em 4em 3em 4em;
             text-align: left;
             font-size: 1.6em;
             font-weight: 300;
+            word-wrap: break-word;
           }
           .images {
             border-radius: 100%;
@@ -266,14 +273,15 @@ a {
         border-bottom: 25px solid transparent;
         border-left: $background-color;
         position: relative;
-        top: 44%;
+        top: 4%;
         left: 22%;
         border-radius: 10%;
+        cursor: pointer;
       }
       .quote-1 {
         position: relative;
-        top: 5%;
-        left: 50%;
+        bottom: 9%;
+        left: 1.5em;
         font-size: 4rem;
       }
     }
@@ -286,17 +294,18 @@ a {
         border-left: 50px solid $secondary-color;
         border-bottom: 25px solid transparent;
         border-right: $background-color;
-        position: relative;
-        top: 44%;
-        right: 22%;
+        position: absolute;
+        top: 110em;
+        left: 95em;
         border-radius: 10%;
+        cursor: pointer;
       }
 
       .quote-2 {
-        position: relative;
-        right: 80%;
+        position: absolute;
         font-size: 4rem;
-        top: 30%;
+        top: 24em;
+        left: 19em;
       }
     }
   }
