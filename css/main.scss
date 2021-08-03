@@ -215,7 +215,6 @@ a {
 }
 
 .Testimonials {
-  grid-template-columns: 1fr 5fr 1fr;
   .Testimonial-heading-container {
     background-color: $secondary-color;
     height: 4em;
@@ -225,91 +224,113 @@ a {
       text-align: center;
       font-size: 2.1em;
       line-height: 1.9;
+      padding: 0;
+      margin: 0;
     }
   }
+
   .Testimonial-child-1 {
-    height: auto;
-    width: 100%;
-    // overflow: hidden;
-    background: $base-color;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
+    position: relative;
+
+    .arrow {
+      position: absolute;
+    }
+
+    #arrow1 {
+      width: 0;
+      height: 0;
+      background-color: $base-color;
+      border-top: 25px solid transparent;
+      border-right: 50px solid $secondary-color;
+      border-bottom: 25px solid transparent;
+      border-left: $background-color;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2%;
+      border-radius: 10%;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .quote-1 {
+      position: absolute;
+      left: 3%;
+      font-size: 3.5em;
+      z-index: 1;
+    }
+
     .grid-2 {
+      overflow: hidden;
       .slide-row {
-        display: flex;
-        height: 80vh;
-        width: 850vh;
+        padding: 20px;
+        height: 400px;
+        overflow: none;
+        position: relative;
+        transition: transform ease-in 1s;
         .slide-column {
-          position: relative;
-          h3 {
-            margin: 2em 4em 3em 4em;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          padding: 0 auto;
+          height: 400px;
+          margin: 0 auto;
+          background: $base-color;
+          width: 100%;
+          .text {
             text-align: left;
-            font-size: 1.6em;
-            font-weight: 300;
-            word-wrap: break-word;
+            font-size: 1.5em;
+            position: relative;
+            left: 2%;
+            padding: 0 4em;
+            .text-paragraph {
+              margin-top: 0px;
+            }
+            .text-name {
+              font-size: 1.5;
+              text-align: center;
+            }
           }
           .images {
-            border-radius: 100%;
-            height: 7em;
-            width: 7em;
-            margin: auto;
-            margin-bottom: 2em;
+            height: 100px;
+            width: 100px;
+            display: block;
+            margin: 0 auto 0 auto;
+            border-radius: 70%;
+            object-fit: cover;
           }
           .rating-stars {
-            height: 4em;
+            margin-top: 2em;
+            display: flex;
+            justify-content: center;
           }
         }
       }
     }
 
-    .grid-1 {
-      .arrow-left {
-        width: 0;
-        height: 0;
-        background-color: $base-color;
-        border-top: 25px solid transparent;
-        border-right: 50px solid $secondary-color;
-        border-bottom: 25px solid transparent;
-        border-left: $background-color;
-        position: relative;
-        top: 4%;
-        left: 22%;
-        border-radius: 10%;
-        cursor: pointer;
-      }
-      .quote-1 {
-        position: relative;
-        bottom: 9%;
-        left: 1.5em;
-        font-size: 4rem;
-      }
+    #arrow2 {
+      position: absolute;
+      width: 0;
+      height: 0;
+      background-color: $base-color;
+      border-top: 25px solid transparent;
+      border-left: 50px solid $secondary-color;
+      border-bottom: 25px solid transparent;
+      border-right: $background-color;
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      border-radius: 10%;
+      cursor: pointer;
     }
-    .grid-3 {
-      .arrow-right {
-        width: 0;
-        height: 0;
-        background-color: $base-color;
-        border-top: 25px solid transparent;
-        border-left: 50px solid $secondary-color;
-        border-bottom: 25px solid transparent;
-        border-right: $background-color;
-        position: absolute;
-        top: 110em;
-        left: 95em;
-        border-radius: 10%;
-        cursor: pointer;
-      }
-
-      .quote-2 {
-        position: absolute;
-        font-size: 4rem;
-        top: 24em;
-        left: 19em;
-      }
+    .quote-2 {
+      position: absolute;
+      right: 2%;
+      top: 20%;
+      font-size: 3.5em;
     }
   }
-
   .Testimonial-child-2 {
     background: black;
   }
