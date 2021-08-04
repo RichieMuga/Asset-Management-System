@@ -436,4 +436,53 @@ a {
 .Testimonials .Testimonial-child-2 {
   background: black;
 }
+
+.faq-container {
+  height: 80vh;
+  color: black;
+  text-align: center;
+}
+
+.faq-container .list-container {
+  height: 70vh;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.faq-container .list-container h1 {
+  color: #02577a;
+  font-size: 2.5em;
+  text-align: center;
+  color: #02577a;
+}
+
+.faq-container .list-container ul {
+  margin: auto;
+  padding: 0;
+  text-align: left;
+  background: #02577a;
+}
+
+.faq-container .list-container ul li {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.faq-container .list-container ul li button {
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.faq-container .list-container ul .faq-text {
+  color: black;
+  display: none;
+  border-style: groove;
+  background: #ffffff;
+}
 /*# sourceMappingURL=main.css.map */

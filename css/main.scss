@@ -335,3 +335,43 @@ a {
     background: black;
   }
 }
+//faq-section
+.faq-container {
+  height: 80vh;
+  color: black;
+  text-align: center;
+  .list-container {
+    height: 70vh;
+    margin: 0 auto;
+    width: 80%;
+    h1 {
+      color: $base-color;
+      font-size: 2.5em;
+      text-align: center;
+      color: $base-color;
+    }
+    ul {
+      margin: auto;
+      padding: 0;
+      text-align: left;
+      background: $base-color;
+      // font-size: ;
+      li {
+        color: $font-white;
+        display: flex;
+        flex-direction: row;
+        button {
+          margin-left: auto;
+          margin-right: 1em;
+        }
+      }
+
+      .faq-text {
+        color: $font-black;
+        display: none;
+        border-style: groove;
+        background: $background-color;
+      }
+    }
+  }
+}
