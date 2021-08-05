@@ -1,7 +1,7 @@
-let list= document.querySelectorAll('.faq-text')
-let button = document.querySelectorAll('.toggle-more-btn')
-const listArray=Array.from(list)
-const buttonArray=Array.from(button)
+let listContent= document.querySelectorAll('.faq-text')
+let buttonContent = document.querySelectorAll('.toggle-more-btn')
+const listArray=Array.from(listContent)
+const buttonArray=Array.from(buttonContent)
 
 //display both array list
 
@@ -21,16 +21,26 @@ const buttonArray=Array.from(button)
 //     })
 // }
 
-//use methods in place of examples
+//loop through all buttons in the list and if both the index of the button and list match
+// for (let i = 0; i < buttonArray.length; i++) {
+//     if (buttonArray[i]&&listArray[i]) {
+//      buttonArray[i].addEventListener('click',e=>{
+//      listArray[i].classList.toggle('poopoo')
+//        })}   
+// }
+
 
 // create funcion that works with individual array indexes
 //experimental
 
-const fufu=(list,button)=>{
-     if (buttonArray.indexOf(button) && listArray.indexOf(list)) {
-    buttonArray[button].addEventListener('click',(e)=>{
-        listArray[list].classList.toggle('poopoo')
-    })
+const buttonPress=(button,list)=>{
+    for (let i = 0; i < button.length; i++) {
+        if (button[i]&&list[i]) {
+            button[i].addEventListener('click',e=>{
+                list[i].classList.toggle('show-more')
+            })
+        }
+    }
 }
-}
-fufu(1,1);
+buttonPress(buttonArray,listArray)
+
