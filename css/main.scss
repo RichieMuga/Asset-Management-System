@@ -337,14 +337,14 @@ a {
 }
 //faq-section
 .faq-container {
-  height: 80vh;
+  height: 60vh;
   color: black;
   text-align: center;
   .list-container {
-    height: 70vh;
+    height: auto;
     margin: 0 auto;
     width: 80%;
-    h1 {
+    .faqs-header {
       color: $base-color;
       font-size: 2.5em;
       text-align: center;
@@ -360,10 +360,26 @@ a {
         color: $font-white;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        border-color: white;
         button {
           margin-left: auto;
           margin-right: 1em;
+          height: 1.8em;
+          width: 0;
+          height: 0;
+          background-color: transparent;
+          border-top: 13px solid transparent;
+          border-right: 24px solid $font-white;
+          border-bottom: 13px solid transparent;
+          border-left: transparent;
+        }
+        .show-more {
+          display: block;
+          transition: 500ms;
+        }
+        .rotate-btn {
+          rotate: -90deg;
+          transition: 500ms;
         }
         p {
           padding-left: 2em;
@@ -372,10 +388,11 @@ a {
       li:first-child {
         padding-top: 0.8em;
       }
+
       .faq-text {
         color: $font-black;
         page-break-after: always;
-        // display: none;
+        display: none;
         border-style: solid;
         border-color: $secondary-color;
         background: $background-color;

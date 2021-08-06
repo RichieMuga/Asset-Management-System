@@ -438,18 +438,18 @@ a {
 }
 
 .faq-container {
-  height: 80vh;
+  height: 60vh;
   color: black;
   text-align: center;
 }
 
 .faq-container .list-container {
-  height: 70vh;
+  height: auto;
   margin: 0 auto;
   width: 80%;
 }
 
-.faq-container .list-container h1 {
+.faq-container .list-container .faqs-header {
   color: #02577a;
   font-size: 2.5em;
   text-align: center;
@@ -472,13 +472,32 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  border-color: white;
 }
 
 .faq-container .list-container ul li button {
   margin-left: auto;
   margin-right: 1em;
+  height: 1.8em;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-top: 13px solid transparent;
+  border-right: 24px solid white;
+  border-bottom: 13px solid transparent;
+  border-left: transparent;
+}
+
+.faq-container .list-container ul li .show-more {
+  display: block;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.faq-container .list-container ul li .rotate-btn {
+  rotate: -90deg;
+  -webkit-transition: 500ms;
+  transition: 500ms;
 }
 
 .faq-container .list-container ul li p {
@@ -492,6 +511,7 @@ a {
 .faq-container .list-container ul .faq-text {
   color: black;
   page-break-after: always;
+  display: none;
   border-style: solid;
   border-color: #89d6fb;
   background: #ffffff;

@@ -38,6 +38,7 @@ const buttonPress=(button,list)=>{
         if (button[i]&&list[i]) {
             button[i].addEventListener('click',e=>{
                 list[i].classList.toggle('show-more')
+                button[i].classList.toggle('rotate-btn')
             })
         }
     }
