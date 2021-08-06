@@ -360,17 +360,26 @@ a {
         color: $font-white;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         button {
           margin-left: auto;
           margin-right: 1em;
         }
+        p {
+          padding-left: 2em;
+        }
       }
-
+      li:first-child {
+        padding-top: 0.8em;
+      }
       .faq-text {
         color: $font-black;
-        display: none;
-        border-style: groove;
+        page-break-after: always;
+        // display: none;
+        border-style: solid;
+        border-color: $secondary-color;
         background: $background-color;
+        padding: 0.5em 3em;
       }
     }
   }

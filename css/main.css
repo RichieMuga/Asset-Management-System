@@ -472,6 +472,8 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .faq-container .list-container ul li button {
@@ -479,10 +481,20 @@ a {
   margin-right: 1em;
 }
 
+.faq-container .list-container ul li p {
+  padding-left: 2em;
+}
+
+.faq-container .list-container ul li:first-child {
+  padding-top: 0.8em;
+}
+
 .faq-container .list-container ul .faq-text {
   color: black;
-  display: none;
-  border-style: groove;
+  page-break-after: always;
+  border-style: solid;
+  border-color: #89d6fb;
   background: #ffffff;
+  padding: 0.5em 3em;
 }
 /*# sourceMappingURL=main.css.map */
