@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
-$base-color: rgb(2, 87, 122);
+$base-color: rgb(40, 102, 129);
 $secondary-color: rgb(137, 214, 251);
 $background-color: #ffffff;
 $font-white: rgb(255, 255, 255);
@@ -337,7 +337,8 @@ a {
 }
 //faq-section
 .faq-container {
-  height: 60vh;
+  margin: 10em 0;
+  height: auto;
   color: black;
   text-align: center;
   .list-container {
@@ -359,6 +360,7 @@ a {
       li {
         color: $font-white;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         border-color: white;
         button {
@@ -397,6 +399,45 @@ a {
         border-color: $secondary-color;
         background: $background-color;
         padding: 0.5em 3em;
+      }
+    }
+  }
+}
+// Message us Section
+.parent-msg {
+  height: auto;
+  margin: 0 auto;
+  color: $font-white;
+  width: 40%;
+  padding: 1.5em 1em;
+  background: #3f3d56;
+  border-radius: 10px;
+  .grid-msg-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    .grid-msg-1 {
+      background: #1ba9f2;
+      h2 {
+        padding: 50% 0.5em;
+      }
+    }
+    .grid-msg-2 {
+      background: #e8d81a;
+      padding: 20% 1em;
+      input {
+        border-radius: 2px;
+        border: none;
+      }
+      button {
+        margin-top: 1em;
+        color: $font-white;
+        background: #1ba9f2;
+        border: none;
+        height: 2em;
+        width: 5em;
+        border-radius: 3px;
       }
     }
   }
