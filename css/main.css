@@ -55,6 +55,13 @@ a {
   line-height: 1.7em;
 }
 
+.header .header-child-2 ul li:hover {
+  background-color: #538fa8;
+  text-align: center;
+  width: 4em;
+  border-radius: 10px;
+}
+
 .header .header-child-3 {
   background: #286681;
 }
@@ -73,20 +80,25 @@ a {
   line-height: 0em;
 }
 
-.header .header-child-3 button :hover {
-  color: white;
-}
-
 .header .header-child-3 button span {
   position: relative;
-  bottom: 0.9em;
+  bottom: 1.3em;
   color: #286681;
+  left: 0.8em;
 }
 
 .header .header-child-3 button .btn-mail {
   position: relative;
   bottom: 0.6em;
-  right: 0.3em;
+  right: 6.5em;
+}
+
+.header .header-child-3 button:hover {
+  background-color: #538fa8;
+}
+
+.header .header-child-3 button:hover span {
+  color: white;
 }
 
 .outside-parent-header {
@@ -94,7 +106,12 @@ a {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-column: 1 / span 3;
-  height: 0.3em;
+  height: 2em;
+}
+
+.outside-parent-header button {
+  border-radius: 5px;
+  margin: 0.4em 1em;
 }
 
 .introduction {
@@ -109,7 +126,6 @@ a {
 
 .introduction .introduction-child-1 {
   background: #ffffff;
-  justify-items: space-around;
 }
 
 .introduction .introduction-child-1 h1 {
@@ -313,6 +329,7 @@ a {
 
 .Testimonials .Testimonial-child-1 {
   position: relative;
+  color: white;
 }
 
 .Testimonials .Testimonial-child-1 .arrow {
@@ -351,7 +368,6 @@ a {
 .Testimonials .Testimonial-child-1 .grid-2 .slide-row {
   padding: 20px;
   height: 400px;
-  overflow: none;
   position: relative;
   -webkit-transition: -webkit-transform ease-in 1s;
   transition: -webkit-transform ease-in 1s;
@@ -364,7 +380,6 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 auto;
   height: 400px;
   margin: 0 auto;
   background: #286681;
@@ -384,7 +399,6 @@ a {
 }
 
 .Testimonials .Testimonial-child-1 .grid-2 .slide-row .slide-column .text .text-name {
-  font-size: 1.5;
   text-align: center;
 }
 
@@ -529,6 +543,9 @@ a {
   padding: 1.5em 1em;
   background: #3f3d56;
   border-radius: 10px;
+  z-index: 1;
+  -webkit-box-shadow: 5px 10px;
+          box-shadow: 5px 10px;
 }
 
 .parent-msg .grid-msg-container {
@@ -570,6 +587,13 @@ a {
 
 .footer {
   color: white;
+}
+
+.footer h4:hover {
+  background: #538fa8;
+  text-align: center;
+  width: 4em;
+  border-radius: 10px;
 }
 
 .footer .decoration-line {

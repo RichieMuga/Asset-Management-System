@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
 $base-color: rgb(40, 102, 129);
+$hover: rgb(83, 143, 168);
 $secondary-color: rgb(137, 214, 251);
 $background-color: #ffffff;
 $font-white: rgb(255, 255, 255);
@@ -45,6 +46,13 @@ a {
       font-size: 1.33em;
       padding-right: 5em;
       line-height: 1.7em;
+
+      li:hover {
+        background-color: $hover;
+        text-align: center;
+        width: 4em;
+        border-radius: 10px;
+      }
     }
   }
   .header-child-3 {
@@ -61,26 +69,35 @@ a {
       border: none;
       padding: 1em;
       line-height: 0em;
-      :hover {
-        color: $font-white;
-      }
       span {
         position: relative;
-        bottom: 0.9em;
+        bottom: 1.3em;
         color: $base-color;
+        left: 0.8em;
       }
       .btn-mail {
         position: relative;
         bottom: 0.6em;
-        right: 0.3em;
+        right: 6.5em;
+      }
+    }
+    button:hover {
+      background-color: $hover;
+      span {
+        color: $font-white;
       }
     }
   }
 }
+//login/signup
 .outside-parent-header {
   background: $secondary-color;
   grid-column: 1 / span 3;
-  height: 0.3em;
+  height: 2em;
+  button {
+    border-radius: 5px;
+    margin: 0.4em 1em;
+  }
 }
 //introduction page
 .introduction {
@@ -90,7 +107,7 @@ a {
 
   .introduction-child-1 {
     background: $background-color;
-    justify-items: space-around;
+
     h1 {
       text-align: center;
     }
@@ -231,7 +248,7 @@ a {
 
   .Testimonial-child-1 {
     position: relative;
-
+    color: $font-white;
     .arrow {
       position: absolute;
     }
@@ -264,7 +281,6 @@ a {
       .slide-row {
         padding: 20px;
         height: 400px;
-        overflow: none;
         position: relative;
         transition: transform ease-in 1s;
         .slide-column {
@@ -272,7 +288,6 @@ a {
           top: 0;
           left: 0;
           right: 0;
-          padding: 0 auto;
           height: 400px;
           margin: 0 auto;
           background: $base-color;
@@ -287,7 +302,6 @@ a {
               margin-top: 0px;
             }
             .text-name {
-              font-size: 1.5;
               text-align: center;
             }
           }
@@ -412,6 +426,8 @@ a {
   padding: 1.5em 1em;
   background: #3f3d56;
   border-radius: 10px;
+  z-index: 1;
+  box-shadow: 5px 10px;
   .grid-msg-container {
     height: 100%;
     display: grid;
@@ -445,6 +461,12 @@ a {
 // footer section
 .footer {
   color: $font-white;
+  h4:hover {
+    background: $hover;
+    text-align: center;
+    width: 4em;
+    border-radius: 10px;
+  }
   .decoration-line {
     width: 100%;
     height: 1em;
@@ -498,4 +520,7 @@ a {
       font-weight: 700;
     }
   }
+}
+// large tablet
+@media only screen and (max-width: 1010px) {
 }
