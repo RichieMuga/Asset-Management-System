@@ -7,6 +7,9 @@
   <body>
     <div class="header">
       <div class="header-child-1">
+        <!-- <h1 style="display: none" id="logo">
+          A|<span id="logo-yellow">M</span>|S
+        </h1> -->
         <a class="logo" href="#">
           <img src="./svg/logo.svg" alt="A|M|S" />
         </a>
@@ -15,29 +18,21 @@
         <!-- middle of first row -->
         <ul>
           <li>
-            <a style="flex-shrink: 0" class="header-content" href="#"
-              >Home <span> </span
-            ></a>
+            <a class="header-content" href="#">Home <span> </span></a>
           </li>
           <li>
-            <a style="flex-shrink: 0" class="header-content" href="#"
+            <a class="header-content" id="about" href="#"
               >About <span> </span>
             </a>
           </li>
           <li>
-            <a style="flex-shrink: 0" class="header-content" href="#"
-              >Pricing<span> </span>
-            </a>
+            <a class="header-content" href="#">Pricing<span> </span> </a>
           </li>
           <li>
-            <a style="flex-shrink: 0" class="header-content" href="#"
-              >FAQs<span> </span>
-            </a>
+            <a class="header-content" id="faqs" href="#">FAQs<span> </span> </a>
           </li>
           <li>
-            <a style="flex-shrink: 0" class="header-content" href="#"
-              >Contacts<span> </span>
-            </a>
+            <a class="header-content" href="#">Contacts<span> </span> </a>
           </li>
         </ul>
       </div>
@@ -56,9 +51,11 @@
       </div>
       <div class="outside-parent-header">
         <!--changed to login and signup-->
-        <button class="login">login</button>
-        <button class="sign-up">sign up</button>
-        <button class="demo-login">demo login</button>
+        <button class="demo-login">Demo login</button>
+        <div class="right">
+          <button class="login">Login</button>
+          <button class="sign-up">Sign up</button>
+        </div>
       </div>
     </div>
     <!--section 2-->
@@ -591,19 +588,25 @@
           <h2>Do you have any queries? suggestions and/ or messages?</h2>
         </div>
         <div class="grid-msg-2">
-          <label for="Name">
-            <h3>Name</h3>
-            <input type="text" id="Name" />
-          </label>
-          <label for="Email">
-            <h3>Email</h3>
-            <input type="text" id="Email" />
-          </label>
-          <label for="Message">
-            <h3>Message</h3>
-            <input type="text" id="Message" /> </label
-          ><br />
-          <button><b>submit</b></button>
+          <section class="name-email">
+            <label for="Name">
+              <h3>Name</h3>
+              <input type="text" id="Name" />
+            </label>
+            <label for="Email">
+              <h3>Email</h3>
+              <input type="text" id="Email" />
+            </label>
+          </section>
+          <section class="message-box">
+            <label for="Message">
+              <h3>Message</h3>
+              <textarea id="Message" name="story" rows="2" cols="33">
+              </textarea>
+            </label>
+            <br />
+            <button>Submit</button>
+          </section>
         </div>
       </div>
     </div>
@@ -679,8 +682,8 @@
       </div>
       <div class="links">
         <div class="footer-grid-1">
-          <h1>A|M|S</h1>
-          <h2>ASSET MANAGEMENT SYSTEM</h2>
+          <h1 id="ams">A|M|S</h1>
+          <h2 id="ams">ASSET MANAGEMENT SYSTEM</h2>
         </div>
         <div class="footer-grid-2">
           <div class="footer-grid-2-section-1">

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 $base-color: rgb(40, 102, 129);
 $hover: rgb(83, 143, 168);
 $secondary-color: rgb(137, 214, 251);
@@ -7,9 +7,17 @@ $font-white: rgb(255, 255, 255);
 $font-black: rgb(0, 0, 0);
 body {
   background-color: $background-color;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   height: 100vh;
   width: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Times New Roman", Times, serif;
 }
 li {
   list-style: none;
@@ -23,16 +31,15 @@ a {
 
 .header {
   display: grid;
-  grid-template-columns: 12.5em 4fr 1fr;
+  grid-template-columns: 7.9em 4fr 0.5fr;
   grid-template-rows: 1fr 0.25fr;
   .header-child-1 {
     background: $base-color;
-
     .logo {
       float: left;
-      margin: 0.75em 2em;
+      margin: 1em 0.9em;
       // for tablet size margin-left: 0.9em;
-      margin-top: 1.4em;
+      margin-top: 1.9em;
     }
   }
   .header-child-2 {
@@ -44,23 +51,24 @@ a {
       display: flex;
       justify-content: space-around;
       font-size: 1.33em;
-      padding-right: 5em;
+      padding-right: 3em;
+      // padding-right: 5em;
       line-height: 1.7em;
-
+      margin-top: 1.5em;
       li:hover {
         background-color: $hover;
         text-align: center;
-        width: 4em;
-        border-radius: 10px;
+        width: 6em;
+        border-radius: 5px;
       }
     }
   }
   .header-child-3 {
     background: $base-color;
     button {
-      position: relative;
-      top: 0.2em;
-      right: 2em;
+      margin-right: 2em;
+      margin-top: 0.92em;
+      float: right;
       height: 2em;
       width: 16em;
       border-radius: 0.8em;
@@ -83,6 +91,7 @@ a {
     }
     button:hover {
       background-color: $hover;
+      cursor: pointer;
       span {
         color: $font-white;
       }
@@ -93,10 +102,37 @@ a {
 .outside-parent-header {
   background: $secondary-color;
   grid-column: 1 / span 3;
-  height: 2em;
+  height: 2.5em;
   button {
-    border-radius: 5px;
-    margin: 0.4em 1em;
+    border-radius: 3px;
+    margin: 0.5em 1em;
+    height: 2.1em;
+    width: 7em;
+    color: $font-white;
+    font-weight: 700;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    &:hover {
+      background: #6e8a9b;
+      border: solid 2px rgba($color: $font-black, $alpha: 0.6);
+      cursor: pointer;
+      box-shadow: none;
+    }
+  }
+  .login {
+    border: none;
+    background: #0788d8;
+    // outline-style: solid;
+  }
+  .sign-up {
+    background: #ebe25e;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .demo-login {
+    background: #de4e5e;
+  }
+  .right {
+    float: right;
   }
 }
 //introduction page
@@ -171,7 +207,7 @@ a {
       color: $font-black;
     }
     h2 {
-      font-size: 3.2em;
+      font-size: 2.5em;
     }
     p {
       font-size: 1.3em;
@@ -215,7 +251,9 @@ a {
   display: grid;
   grid-template-columns: 0.1fr 1fr 1fr;
   grid-template-rows: 2fr 2fr;
-  height: 95%;
+  overflow: hidden;
+  // display: flex;
+  height: 100%;
   // .services-page-child-1 {
   // }
   .services-page-child-2 {
@@ -224,14 +262,21 @@ a {
       font-size: 1.4em;
     }
     ul {
-      margin-bottom: 3em;
+      li {
+        word-break: break-word;
+      }
     }
   }
-  // .services-page-child-3 {
-  // }
+  .services-page-child-3 {
+    img {
+      position: relative;
+      right: 0;
+    }
+  }
 }
 
 .Testimonials {
+  margin-top: 1em;
   .Testimonial-heading-container {
     background-color: $secondary-color;
     height: 4em;
@@ -294,7 +339,7 @@ a {
           width: 100%;
           .text {
             text-align: left;
-            font-size: 1.5em;
+            font-size: 1.8em;
             position: relative;
             left: 2%;
             padding: 0 4em;
@@ -351,6 +396,7 @@ a {
 }
 //faq-section
 .faq-container {
+  width: 100%;
   margin: 10em 0;
   height: auto;
   color: black;
@@ -358,7 +404,7 @@ a {
   .list-container {
     height: auto;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     .faqs-header {
       color: $base-color;
       font-size: 2.5em;
@@ -422,7 +468,7 @@ a {
   height: auto;
   margin: 0 auto;
   color: $font-white;
-  width: 40%;
+  width: 70%;
   padding: 1.5em 1em;
   background: #3f3d56;
   border-radius: 10px;
@@ -446,14 +492,28 @@ a {
         border-radius: 2px;
         border: none;
       }
+      // .message-box {
+      //   input {
+      //     height: 20vh;
+      //     width: 100%;
+      //   }
+      // }
       button {
         margin-top: 1em;
         color: $font-white;
         background: #1ba9f2;
+        height: 2.1em;
+        width: 7em;
+        color: $font-white;
+        font-weight: 700;
+        box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.2);
         border: none;
-        height: 2em;
-        width: 5em;
-        border-radius: 3px;
+        &:hover {
+          cursor: pointer;
+          background: #6e8a9b;
+          border: solid 2px rgba($color: $font-black, $alpha: 0.6);
+          cursor: pointer;
+        }
       }
     }
   }
@@ -462,10 +522,12 @@ a {
 .footer {
   color: $font-white;
   h4:hover {
+    padding: 0.5em 0.2em;
     background: $hover;
     text-align: center;
-    width: 4em;
+    width: 5em;
     border-radius: 10px;
+    height: 1em;
   }
   .decoration-line {
     width: 100%;
@@ -517,10 +579,129 @@ a {
     P {
       color: #f4f2f2;
       margin: 0 auto;
-      font-weight: 700;
+      font-weight: 500;
+      font-size: 0.652em;
+      padding: 0.1em;
     }
   }
 }
 // large tablet
-@media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 1100px) {
+  .header {
+    grid-template-columns: 9em 6fr 0.2fr;
+    .header-child-3 {
+      button {
+        width: 4.125em;
+      }
+      .btn-mail {
+        left: 0.1px;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+  .introduction {
+    display: flex;
+    flex-direction: column;
+
+    .introduction-child-1 {
+      margin: 0 auto;
+    }
+    .introduction-child-2 {
+      h2 {
+        text-align: center;
+      }
+      p {
+        font-size: 1.3em;
+      }
+    }
+  }
+  .services-page {
+    display: flex;
+    .services-page-child-3 {
+      display: none;
+    }
+  }
+  .downArrow {
+    display: none;
+  }
+}
+// @media only screen and (min-width: 785px) {
+//   .header {
+//     display: flex;
+//   }
+// }
+@media only screen and (max-width: 785px) {
+  .header {
+    grid-template-columns: 2em 3fr none;
+
+    .logo {
+      margin-left: 0.1px;
+    }
+
+    .header-child-2 {
+      ul {
+        // padding-left: 1.4em;
+        gap: 0.2em;
+      }
+      #faqs {
+        display: none;
+      }
+      #about {
+        display: none;
+      }
+    }
+  }
+  .rating-stars {
+    padding-top: 0.2em;
+  }
+}
+.outside-parent-header {
+  .right {
+    margin-right: 1em;
+  }
+}
+.footer {
+  #ams {
+    padding-left: 15px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .header {
+    display: grid;
+    grid-template-columns: 6em 2fr 125px;
+    .header-child-2 {
+      background: $base-color;
+      ul {
+        // display: flex;
+        // justify-content: space-around;
+        font-size: 1.1em;
+        padding-right: 1em;
+        margin-top: 2em;
+      }
+    }
+    .logo {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .header {
+    display: grid;
+    grid-template-columns: 6em 4fr 125px;
+    .header-child-2 {
+      background: $base-color;
+      ul {
+        // display: flex;
+        // justify-content: space-around;
+        font-size: 1em;
+        padding-right: 0.8em;
+        padding-left: 50px;
+        margin-top: 2.3em;
+      }
+    }
+  }
 }
