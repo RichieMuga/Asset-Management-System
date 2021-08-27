@@ -12,6 +12,9 @@ body {
   height: 100vh;
   width: auto;
 }
+a:visited {
+  color: $font-white;
+}
 h1,
 h2,
 h3,
@@ -88,6 +91,27 @@ a {
         bottom: 0.6em;
         right: 6.5em;
       }
+    }
+
+    .btn-cp::before {
+      background-color: #656375;
+      color: $font-white;
+      position: absolute;
+      top: 1%;
+      content: "copied!";
+      padding: 10px;
+      border-radius: 20px;
+      z-index: 1;
+      font-size: 0.9em;
+    }
+    .btn-cp::after {
+      content: "";
+      background: #656375;
+      padding: 4px;
+      position: absolute;
+      right: 10rem;
+      top: 3.8%;
+      transform: rotate(45deg);
     }
     button:hover {
       background-color: $hover;
