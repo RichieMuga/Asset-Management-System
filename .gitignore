@@ -1,4 +1,4 @@
 /node_modules
 .env
-/main.css
-/main.css.map
+main.css
+main.css.map

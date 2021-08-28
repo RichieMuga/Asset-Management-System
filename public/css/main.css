@@ -818,6 +818,9 @@ a {
 }
 
 @media only screen and (max-width: 785px) {
+  .slide-column {
+    height: 900px;
+  }
   .header {
     -ms-grid-columns: 2em 3fr none;
         grid-template-columns: 2em 3fr none;

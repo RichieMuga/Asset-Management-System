@@ -8,25 +8,39 @@
   </head>
   <body>
     <h2>Sign up</h2>
-    <p>Firstname</p>
-    <label for="Firstname"></label
-    ><input type="text" name="Firstname" id="Firstname" />
+    <form class="sign-up-form" action="/signup/api/v1" method="POST">
+      <p>Firstname</p>
+      <label for="Firstname"></label
+      ><input
+        type="text"
+        name="Firstname"
+        id="Firstname"
+        autocomplete="false"
+      />
 
-    <p>Lastname</p>
-    <label for="Lastname"></label
-    ><input type="text" name="Lastname" id="Lastname" />
+      <p>Lastname</p>
+      <label for="Lastname"></label
+      ><input type="text" name="Lastname" id="Lastname" autocomplete="false" />
 
-    <p>Email</p>
-    <label for="Email"></label><input type="text" name="Email" id="Email" />
+      <p>Email</p>
+      <label for="Email"></label
+      ><input type="text" name="Email" id="Email" autocomplete="false" />
 
-    <p>password</p>
-    <label for="password"></label
-    ><input type="text" name="password" id="password" />
+      <p>password</p>
+      <label for="password"></label
+      ><input type="text" name="password" id="password" autocomplete="false" />
 
-    <p>confirm password</p>
-    <label for="confirm-password"></label
-    ><input type="text" name="confirm-password" id="confirm-password" />
+      <p>confirm password</p>
+      <label for="confirm-password"></label
+      ><input
+        type="text"
+        name="confirm-password"
+        id="confirm-password"
+        autocomplete="false"
+      /><br />
 
-    <button type="submit">Submit</button>
+      <button type="submit">Submit</button>
+    </form>
+    <script src="./js-frontend/sign-up-form.js"></script>
   </body>
 </html>
