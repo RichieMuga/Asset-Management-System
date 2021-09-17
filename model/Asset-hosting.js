@@ -17,7 +17,7 @@ const assetCreationSchema = new mongoose.Schema({
         },
     warranty:{
         type:Boolean,
-        default:[false,'Kindly provide a warrant if any']
+        default:[false]
         },
     location:{
         type:String,

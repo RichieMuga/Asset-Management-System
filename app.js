@@ -12,32 +12,26 @@ app.use(express.json())
 app.use(express.static('./public'))
 //parse incoming url trafic
 app.use(express.urlencoded({extended:false}))
-//
-app.set("view engine","pug")
-app.get('/',(req,res)=>{
-    res.render("sign-up")
-})
 
-//post signup route
-app.use('/signup/api/v1',signupNewUser)
+// server side rendering html pages in future
 
-//get sign-up page
-app.get('/sign-up',(req,res)=>{
-    res.status(200).render('sign-up')
-})
+//sign up route from routes
+app.use('/api/v1',signupNewUser)
 
 //error message if page is not found
 app.use(pagenotfound)
-
+//error message for handling any error that may occur
+// app.use(errorHandler)
 //async function defining if connection to server is correct,
 //then after db connection has been established, connect to server
 const startserver= async()=>{
-    try {
+try {
   await connectdb(process.env.URL_FOR_DB);
   app.listen(port,()=>{
     console.log(`listening on port ${port}`)
 })     
-    } catch (error) {
+    }
+ catch (error) {
         console.log(error)
     }
 }
