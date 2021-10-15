@@ -6,8 +6,9 @@ const port= 3000 || process.env.PORT_NUMBER
 const {connectdb}=require('./db/connect')
 const errorHandler=require('./errors/customError')
 const pagenotfound=require('./middleware/pagenotfound')
-const signupNewUser= require('./routers/auth/auth')
-const loginUser=require('./routers/auth/login')
+//custom routes
+const auth = require('./routers/auth/auth')
+
 
 //parse json
 app.use(express.json())
@@ -18,13 +19,16 @@ app.use(express.urlencoded({extended:false}))
 
 // server side rendering html pages in future
 
-//auth routes
-app.use('/api/v1/auth',auth)
+//routes
+app.use('/api/v1',auth)
 
 //error message if page is not found
 app.use(pagenotfound)
 //error message for handling any error that may occur
 app.use(errorHandler)
+
+
+
 //async function defining if connection to server is correct,
 //then after db connection has been established, connect to server
 const startserver= async()=>{

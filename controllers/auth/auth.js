@@ -10,13 +10,14 @@ const createsignupuser=async(req,res)=>{
     if(!Firstname||!Lastname||!Email||!password||!confirmPassword||!username){
       throw new Error("please provide appropriate credentials",400)
     }
+    
     if(password === confirmPassword){
-        let jwt = require('jsonwebtoken');
-        //in jwt token the smaller the payload the better the user experience
-        let token = jwt.sign({username,Email,Lastname}, process.env.JWT_SECRET,{expiresIn:'20d'});
-        res.json({status:"success",token}).redirect('/login.html')
+      //in jwt token the smaller the payload the better the user experience
+      let token = jwt.sign({username,Email,Lastname}, process.env.JWT_SECRET,{expiresIn:'20d'});
+      res.status(200).json({msg:"success",token})
+      }
+    // throw new Error("password does not match")
     }
 
-}
 
-module.exports={createsignupuser,getsign_up_page}
+module.exports={createsignupuser}
