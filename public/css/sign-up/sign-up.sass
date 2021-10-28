@@ -10,23 +10,67 @@ body
     padding: 0
     margin: 0
 input
-    width: 60%
+    width: 20em
     height: 2em
 .menu-nav
     background: $base-color
     text-align: center
-.sign-up
-    display: flex
-    align-items: center
-    flex-direction: column
+    padding: .7em 0
+section
+    h1
+        color: $base-color
+        font-weight: 600
+        display: flex
+        justify-content: center
+.sign-up-parent
+    display: grid
+    grid-template-columns: repeat(2,1fr)
     h2
         text-align: center
-
+        color: $base-color
+    .child-1-sign-up-google
+        margin: 0 auto
+        button
+            position: relative
+            top: 7em
+            background: $base-color
+            width: 20em
+            height: 4em
+            img
+                width: 3em
+                height: 3em
+                position: relative
+                top: .5em
+                left: -8em
+            h2
+                margin: 0
+                margin-left: 1.5em
+                position: relative
+                bottom: 1.5em
+                color: $font-white
+        button:hover
+            cursor: pointer
+            background: $hover
+        p
+            position: relative
+            top: 7em
+            left: 4em
+        .or
+            position: absolute
+            left: 50%
+            top: 50%
+            color: $base-color
 .sign-up-form
     width: 30%
-    margin-left: 150px
+    margin-left: 10em
 .sign-up-submit
     background: $base-color
+    font-weight: 600
+    margin-left: 6.9em
+    width: 7em
+.sign-up-submit:hover
+    background: $hover
+    cursor: pointer
 
 button,
 button:focus,

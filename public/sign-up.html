@@ -17,14 +17,30 @@
       </div>
       <div class="decoration"></div>
     </div>
-    <div class="sign-up">
-      <h2>Sign up</h2>
-    <form class="sign-up-form" action="/api/v1/signup" method="POST">
-      <p>Firstname</p>
+    <section><h1>Sign up</h1></section>
+    <div class="sign-up-parent" id="main-class">
+      <div class="child-1-sign-up-google">
+        <button>
+          <img src="./images/google-icon.png" alt="sign up with google" class=google-signup>
+          <h2>Sign up with google</h2>
+        </button>
+        <section>
+          <p>
+            Already have an account?
+          </p>
+          <button>
+            <h3>Login</h3>
+          </button>
+        </section>
+        <section>
+          <h3 class="or">or</h3>
+        </section>
+        
+      </div>
+      <div class="child-2-sign-up">
+      <form class="sign-up-form" action="/api/v1/auth" method="POST">
+      <p>Fullname</p>
       <label for="Firstname"></label><input type="text" name="Firstname" id="Firstname" autocomplete="false"/>
-
-      <p>Lastname</p>
-      <label for="Lastname"></label><input type="text" name="Lastname" id="Lastname" autocomplete="false" />
 
       <p>Username</p>
       <label for="Lastname"></label><input type="text" name="Lastname" id="Lastname" autocomplete="false" />
@@ -41,6 +57,8 @@
       <button type="submit" class=sign-up-submit >Submit</button>
     </form>
     <script src="./js-frontend/sign-up-page/sign-up-form.js"></script>
+      </div>
+     
     </div>
     
   </body>
