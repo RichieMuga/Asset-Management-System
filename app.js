@@ -18,6 +18,8 @@ app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended: false }))
 
 // server side rendering html pages in future using pug
+// app.set('views', path.join(__dirname, 'public'))
+// app.set('view engine','pug')
 
 //routes
 app.use('/api/v1', auth)

@@ -15,7 +15,8 @@
     "ityped": "^1.0.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.7",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
