@@ -2,7 +2,7 @@ require('dotenv').config()
 require('express-async-errors')
 const express = require('express')
 const app = express()
-const port = 3000 || process.env.PORT_NUMBER
+const port = 4000 || process.env.PORT_NUMBER
 const { connectdb } = require('./db/connect')
 const { CustomAPIError } = require('./errors/customError')
 const pagenotfound = require('./middleware/pagenotfound')
@@ -12,16 +12,25 @@ const auth = require('./routers/auth/auth')
 //parse json
 app.use(express.json())
 //setting up public assets to access the html and css files
+// app.use(express.static("public"));
 app.use(express.static(__dirname + '/public'))
 // app.use('/static', express.static(path.join(__dirname, 'public')))
 //parse incoming url trafic
 app.use(express.urlencoded({ extended: false }))
 
 // server side rendering html pages in future using pug
-// app.set('views', path.join(__dirname, 'public'))
-// app.set('view engine','pug')
+app.set('view engine', 'ejs')
 
 //routes
+
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+app.get('/sign-up', (req, res) => {
+    res.render('sign-up')
+})
+
 app.use('/api/v1', auth)
 
 //error message if page is not found
@@ -45,32 +54,3 @@ const startserver = async () => {
     }
 }
 startserver()
-// require('dotenv').config()
-// require('express-async-errors')
-
-// const express = require('express')
-// const app = express()
-// // const mainRouter = require('./routes/main')
-
-// const notFoundMiddleware = require('./middleware/pagenotfound')
-// // const errorHandlerMiddleware = require('./middleware/error-handler')
-
-// // middleware
-// app.use(express.static('./public'))
-// app.use(express.json())
-
-// // app.use('/api/v1/', mainRouter)
-
-// // app.use(notFoundMiddleware)
-// // app.use(errorHandlerMiddleware)
-
-// const port = process.env.PORT || 3000
-
-// const start = async () => {
-//   try {
-//     app.listen(port, console.log(`Server is listening on port ${port}...`))
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-// start()

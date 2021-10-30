@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/sign-up/sign-up.css" />
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="/css/header.css" />
+    <title>Sign up</title>
+  </head>
+  <body>
+    <div class="header-official">
+      <div class="menu-nav">
+        <a href="Index.html" alt="A|M|S"
+          ><img src="./svg/logo.svg" alt="A|M|S"
+        /></a>
+      </div>
+      <div class="decoration"></div>
+    </div>
+    <section><h1>Sign up</h1></section>
+    <div class="sign-up-parent" id="main-class">
+      <div class="child-1-sign-up-google">
+        <button>
+          <img
+            src="./images/google-icon.png"
+            alt="sign up with google"
+            class="google-signup"
+          />
+          <h2>Sign up with google</h2>
+        </button>
+        <section>
+          <p>Already have an account?</p>
+          <button>
+            <h3>Login</h3>
+          </button>
+        </section>
+        <section>
+          <h3 class="or">or</h3>
+        </section>
+      </div>
+      <div class="child-2-sign-up">
+        <form class="sign-up-form" action="/api/v1/auth" method="POST">
+          <p>Fullname</p>
+          <label for="Firstname"></label
+          ><input
+            type="text"
+            name="Firstname"
+            id="Firstname"
+            autocomplete="false"
+          />
+
+          <p>Username</p>
+          <label for="Lastname"></label
+          ><input
+            type="text"
+            name="Lastname"
+            id="Lastname"
+            autocomplete="false"
+          />
+
+          <p>Email</p>
+          <label for="Email"></label
+          ><input type="text" name="Email" id="Email" autocomplete="false" />
+
+          <p>password</p>
+          <label for="password"></label
+          ><input
+            type="text"
+            name="password"
+            id="password"
+            autocomplete="false"
+          />
+
+          <p>confirm password</p>
+          <label for="confirmPassword"></label
+          ><input
+            type="text"
+            name="confirmPassword"
+            id="confirmPassword"
+            autocomplete="false"
+          /><br />
+
+          <button type="submit" class="sign-up-submit">Submit</button>
+        </form>
+        <script src="./js-frontend/sign-up-page/sign-up-form.js"></script>
+      </div>
+    </div>
+  </body>
+</html>
