@@ -23,14 +23,6 @@ app.set('view engine', 'ejs')
 
 //routes
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
-app.get('/sign-up', (req, res) => {
-    res.render('sign-up')
-})
-
 app.use('/api/v1', auth)
 
 //error message if page is not found
