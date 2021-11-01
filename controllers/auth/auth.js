@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 
-const getsignup = (req, res) => {
-  res.status(200).render('sign-up')
+const login = async (req, res) => {
+  res.status(200).json({ msg: 'logged in' })
 }
 
 const createsignupuser = async (req, res) => {
@@ -14,13 +14,14 @@ const createsignupuser = async (req, res) => {
     throw new Error("please provide appropriate credentials", 400)
   }
 
-  if (password === confirmPassword) {
-    //in jwt token the smaller the payload the better the user experience
-    let token = jwt.sign({ username, Email, Lastname }, process.env.JWT_SECRET, { expiresIn: '20d' });
-    res.status(200).json({ msg: "success", token })
+  if (password !== confirmPassword) {
+    throw new Error('password does not match')
   }
-  // throw new Error("password does not match")
+
+  res.status(200).render('login')
 }
 
 
-module.exports = { createsignupuser, getsignup }
+
+
+module.exports = { createsignupuser, login }

@@ -42,12 +42,21 @@
       </div>
       <div class="child-2-sign-up">
         <form class="sign-up-form" action="/api/v1/auth" method="POST">
-          <p>Fullname</p>
+          <p>Firstname</p>
           <label for="Firstname"></label
           ><input
             type="text"
             name="Firstname"
             id="Firstname"
+            autocomplete="false"
+          />
+
+          <p>Lastname</p>
+          <label for="Lastname"></label
+          ><input
+            type="text"
+            name="Lastname"
+            id="Lastname"
             autocomplete="false"
           />
 
@@ -83,6 +92,7 @@
           /><br />
 
           <button type="submit" class="sign-up-submit">Submit</button>
+          <h4 id="alert-message"></h4>
         </form>
         <script src="./js-frontend/sign-up-page/sign-up-form.js"></script>
       </div>
