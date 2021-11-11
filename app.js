@@ -1,13 +1,12 @@
 require('dotenv').config()
 require('express-async-errors')
 const express = require('express')
-const { sign } = require('jsonwebtoken')
-const { getHomepage } = require('./controllers/navigation/navigation')
 const app = express()
-const port = 4000 || process.env.PORT_NUMBER
+const port = 5000 || process.env.PORT_NUMBER
 const { connectdb } = require('./db/connect')
 const { CustomAPIError } = require('./errors/customError')
 const pagenotfound = require('./middleware/pagenotfound')
+const clientSession = require('./middleware/client-sessions')
 //custom routes
 const auth = require('./routers/auth/auth')
 const navigation = require('./routers/navigation/navigation')
@@ -28,7 +27,8 @@ app.set('view engine', 'ejs')
 app.use('/', navigation)
 app.use('/api/v1', auth)
 
-
+//
+app.use(clientSession)
 //error message if page is not found
 app.use(pagenotfound)
 //error message for handling any error that may occur

@@ -8,15 +8,17 @@
   </head>
   <body>
     <div>
-    <p>Email</p>
-    <label for="email"></label><input type="text" name="email" id="email" />
+    <form id="form-login" class="login-form" action="/api/v1/login" method="POST">
+        <p>Email</p>
+        <label for="email"></label><input type="text" name="email" id="email" />
+        <p>Password</p>
+        <label for="password"></label>
+        <input type="text" name="password" id="password" />
+        <button type="submit" id="submit-login">Submit</button>
+    <h4 id="alert-message"></h4>
+    </form>
+    </body>
+   </div>
 
-    <p>Password</p>
-    <label for="password"></label>
-    <input type="text" name="password" id="password" />
-    </div>
-   
-
-    <button type="submit">Submit</button>
   </body>
 </html>

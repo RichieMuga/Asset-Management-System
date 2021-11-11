@@ -1,14 +1,34 @@
 const CustomAPIError = require('../../errors/customError')
-//import jsonwebtoken for using jwt to issue token from the server to send secret to the user
-const jwt = require('jsonwebtoken')
+const User = require('../../model/user-credentials/userAccounts')
 require('dotenv').config()
 
 
 const login = async (req, res) => {
-  res.status(200).json({ msg: 'logged in' })
+  const { Email, password } = req.body
+  // User.findOne({ Email }, (err, user) => {
+  //   if (!user || password !== user.password) {
+  //     return res.render('login', { error: "incorrect username or passowrd" })
+  //   }
+  // })
+  if (!Email || !password) {
+    throw new CustomAPIError('please provide email or password', 400)
+  }
+  const user = await User.findOne({ Email })
+  if (!user) {
+    throw new CustomAPIError('invalid credentials', 400)
+  }
+  console.log(req.session)
+  // if (!Email) {
+  //   throw new Error("enter a valid email or password")
+  // }
+
+  console.log(user)
+  res.json({ success: 'okey' })
 }
 
+
 const createsignupuser = async (req, res) => {
+  console.log(req.body)
   const { Firstname, Lastname, Email, password, confirmPassword, username } = req.body
   if (!Firstname || !Lastname || !Email || !password || !confirmPassword || !username) {
     throw new Error("please provide appropriate credentials", 400)
@@ -18,7 +38,9 @@ const createsignupuser = async (req, res) => {
     throw new Error('password does not match')
   }
 
-  res.status(200).render('login')
+  const person = await User.create(req.body)
+
+  return res.redirect('/login')
 }
 
 

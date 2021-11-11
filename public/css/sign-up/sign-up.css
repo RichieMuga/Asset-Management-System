@@ -7,6 +7,9 @@ body {
 input {
   width: 20em;
   height: 2em;
+  border-radius: 7px;
+  border-style: groove;
+  background-color: transparent;
 }
 
 .menu-nav {

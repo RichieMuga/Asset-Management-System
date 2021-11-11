@@ -29,6 +29,9 @@ const tutorial = (req, res) => {
 const getsignup = (req, res) => {
     res.status(200).render('sign-up')
 }
+const login = (req, res) => {
+    res.status(200).render('login')
+}
 
-module.exports = { getHomepage, pricing, tutorial, contacts, legal, dashboard, aboutPage, getsignup }
+module.exports = { getHomepage, pricing, tutorial, contacts, legal, dashboard, aboutPage, getsignup, login }
 
