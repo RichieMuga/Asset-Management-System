@@ -62,7 +62,7 @@ const submitform = async (e, form) => {
   //build headers
   const headers = buildHeaders();
   //req and res
-  const res = await fetchService.performPostHttpRequest('/api/v1/auth', headers, jsonFormData)//uses json placeholder
+  const res = await fetchService.performPostHttpRequest('/api/v1/auth/register', headers, jsonFormData)//uses json placeholder
   console.log(res)
   //inform user of result
   if (res) {

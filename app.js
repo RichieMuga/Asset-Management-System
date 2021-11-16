@@ -6,10 +6,11 @@ const port = 5000 || process.env.PORT_NUMBER
 const { connectdb } = require('./db/connect')
 const { CustomAPIError } = require('./errors/customError')
 const pagenotfound = require('./middleware/pagenotfound')
-const clientSession = require('./middleware/client-sessions')
+const clientSession = require('client-sessions')
 //custom routes
 const auth = require('./routers/auth/auth')
 const navigation = require('./routers/navigation/navigation')
+const router = require('./routers/auth/auth')
 
 //parse json
 app.use(express.json())
@@ -25,10 +26,14 @@ app.set('view engine', 'ejs')
 
 //routes
 app.use('/', navigation)
-app.use('/api/v1', auth)
+app.use('/api/v1/auth', auth)
 
 //
-app.use(clientSession)
+app.use(clientSession({
+    cookieName: 'session',
+    secret: process.env.SECRET,
+    duration: 30 * 70 * 80
+}))
 //error message if page is not found
 app.use(pagenotfound)
 //error message for handling any error that may occur

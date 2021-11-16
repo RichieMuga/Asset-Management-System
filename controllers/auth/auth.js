@@ -1,29 +1,26 @@
-const CustomAPIError = require('../../errors/customError')
+const { StatusCodes } = require('http-status-codes')
+const { CustomAPIError, UnauthenticatedError, NotFoundError, BadRequestError, } = require('../../errors')
 const User = require('../../model/user-credentials/userAccounts')
 require('dotenv').config()
 
 
 const login = async (req, res) => {
   const { Email, password } = req.body
-  // User.findOne({ Email }, (err, user) => {
-  //   if (!user || password !== user.password) {
-  //     return res.render('login', { error: "incorrect username or passowrd" })
-  //   }
-  // })
-  if (!Email || !password) {
-    throw new CustomAPIError('please provide email or password', 400)
-  }
-  const user = await User.findOne({ Email })
-  if (!user) {
-    throw new CustomAPIError('invalid credentials', 400)
-  }
-  console.log(req.session)
-  // if (!Email) {
-  //   throw new Error("enter a valid email or password")
-  // }
 
-  console.log(user)
-  res.json({ success: 'okey' })
+  //if password or email or both havent been provided send bad request
+  if (!Email || !password) {
+    throw new BadRequestError('please provide valid email or password')
+  }
+  //parse through the database to find user email and email that is compatible
+  //with the email's password if they are not then return to login page
+  const user = await User.findOne({ Email, password })
+  if (!user) {
+    throw new BadRequestError('could not find email')
+  }
+
+  console.log(req.session)
+
+  res.status(StatusCodes.OK).json({ status: "success", user })
 }
 
 
@@ -35,12 +32,12 @@ const createsignupuser = async (req, res) => {
   }
 
   if (password !== confirmPassword) {
-    throw new Error('password does not match')
+    throw new BadRequestError('password does not match')
   }
 
-  const person = await User.create(req.body)
+  const person = await User.create({ ...req.body })
 
-  return res.redirect('/login')
+  return res.status(StatusCodes.CREATED).json({ status: 'success', user: person })
 }
 
 

@@ -5,4 +5,4 @@ const createSession = (sessions({
     secret: process.env.SECRET,
     duration: 30 * 70 * 80
 }))
-module.exports = createSession
+module.exports = { createSession }
