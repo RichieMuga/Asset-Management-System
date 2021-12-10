@@ -25,10 +25,9 @@ const login = async (req, res) => {
 
 
 const createsignupuser = async (req, res) => {
-  console.log(req.body)
   const { Firstname, Lastname, Email, password, confirmPassword, username } = req.body
   if (!Firstname || !Lastname || !Email || !password || !confirmPassword || !username) {
-    throw new Error("please provide appropriate credentials", 400)
+    throw new UnauthenticatedError("please provide appropriate credentials")
   }
 
   if (password !== confirmPassword) {
@@ -40,7 +39,11 @@ const createsignupuser = async (req, res) => {
   return res.status(StatusCodes.CREATED).json({ status: 'success', user: person })
 }
 
+const logout = async (req, res) => {
+  res.send('logout')
+}
 
 
 
-module.exports = { createsignupuser, login }
+
+module.exports = { createsignupuser, login, logout }

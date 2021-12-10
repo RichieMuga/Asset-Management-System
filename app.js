@@ -4,14 +4,17 @@ const express = require('express')
 const app = express()
 const port = 5000 || process.env.PORT_NUMBER
 const { connectdb } = require('./db/connect')
-const { CustomAPIError } = require('./errors/customError')
+const errorhandlerMiddleware = require('./middleware/errorhandlerMiddleware')
 const pagenotfound = require('./middleware/pagenotfound')
-const clientSession = require('client-sessions')
 //custom routes
 const auth = require('./routers/auth/auth')
 const navigation = require('./routers/navigation/navigation')
-const router = require('./routers/auth/auth')
 
+//npm packages
+const morgan = require('morgan')
+
+
+app.use(morgan('tiny'))
 //parse json
 app.use(express.json())
 //setting up public assets to access the html and css files
@@ -28,16 +31,11 @@ app.set('view engine', 'ejs')
 app.use('/', navigation)
 app.use('/api/v1/auth', auth)
 
-//
-app.use(clientSession({
-    cookieName: 'session',
-    secret: process.env.SECRET,
-    duration: 30 * 70 * 80
-}))
+
 //error message if page is not found
 app.use(pagenotfound)
 //error message for handling any error that may occur
-app.use(CustomAPIError)
+app.use(errorhandlerMiddleware)
 
 
 
