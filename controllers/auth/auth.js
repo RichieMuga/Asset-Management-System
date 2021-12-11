@@ -15,7 +15,7 @@ const login = async (req, res) => {
   //with the email's password if they are not then return to login page
   const user = await User.findOne({ Email, password })
   if (!user) {
-    throw new BadRequestError('could not find email')
+    throw new BadRequestError('could not find email or password')
   }
 
   console.log(req.session)
@@ -33,8 +33,12 @@ const createsignupuser = async (req, res) => {
   if (password !== confirmPassword) {
     throw new BadRequestError('password does not match')
   }
-
-  const person = await User.create({ ...req.body })
+  // to check if the email is in use, but in this project we will use the schema instead
+  // const emailAlreadyExists = await User.findOne({ Email })
+  // if (emailAlreadyExists) {
+  //   throw new BadRequestError('email already exists')
+  // }
+  const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username })
 
   return res.status(StatusCodes.CREATED).json({ status: 'success', user: person })
 }
