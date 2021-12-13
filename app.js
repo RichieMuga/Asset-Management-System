@@ -8,6 +8,7 @@ const errorhandlerMiddleware = require('./middleware/errorhandlerMiddleware')
 const pagenotfound = require('./middleware/pagenotfound')
 //custom routes
 const auth = require('./routers/auth/auth')
+const users = require('./routers/navigation/usersRouters')
 const navigation = require('./routers/navigation/navigation')
 
 //npm packages
@@ -31,6 +32,7 @@ app.set('view engine', 'ejs')
 //routes
 app.use('/', navigation)
 app.use('/api/v1/auth', auth)
+app.use('/api/v1/users', users)
 
 
 //error message if page is not found

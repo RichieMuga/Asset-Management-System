@@ -50,7 +50,7 @@ const createsignupuser = async (req, res) => {
   // }
   const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username })
   const usernameAndEmail = { username, Email }
-  const tokenUser = { createdAt: person.createdAt, userId: person._id }
+  const tokenUser = { role: person.role, userId: person._id, Firstname: person.Firstname }
 
   // const token = await jwt.sign(tokenUser, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
 
@@ -66,7 +66,8 @@ const createsignupuser = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-  res.send('logout')
+  res.cookie('cookieYaKwanza', 'logged out', { expires: new Date(Date.now()), httpOnly: true, })
+  res.status(StatusCodes.ACCEPTED).json({ msg: 'user logged out' })
 }
 
 
