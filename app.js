@@ -12,15 +12,16 @@ const navigation = require('./routers/navigation/navigation')
 
 //npm packages
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
 
-
+//use packages
 app.use(morgan('tiny'))
 //parse json
 app.use(express.json())
+//parse cookie
+app.use(cookieParser(process.env.JWT_SECRET))
 //setting up public assets to access the html and css files
-// app.use(express.static("public"));
 app.use(express.static(__dirname + '/public'))
-// app.use('/static', express.static(path.join(__dirname, 'public')))
 //parse incoming url trafic
 app.use(express.urlencoded({ extended: false }))
 

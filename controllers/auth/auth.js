@@ -1,6 +1,8 @@
 const { StatusCodes } = require('http-status-codes')
+const jwt = require('jsonwebtoken')
 const { CustomAPIError, UnauthenticatedError, NotFoundError, BadRequestError, } = require('../../errors')
 const User = require('../../model/user-credentials/userAccounts')
+const cookiesutils = require('../../utils')
 require('dotenv').config()
 
 
@@ -9,18 +11,26 @@ const login = async (req, res) => {
 
   //if password or email or both havent been provided send bad request
   if (!Email || !password) {
-    throw new BadRequestError('please provide valid email or password')
+    throw new UnauthenticatedError('invalid credentials')
   }
   //parse through the database to find user email and email that is compatible
   //with the email's password if they are not then return to login page
-  const user = await User.findOne({ Email, password })
+  const user = await User.findOne({ Email })
+
   if (!user) {
-    throw new BadRequestError('could not find email or password')
+    throw new BadRequestError("email doesn't exist")
   }
+  const passwordismatch = await user.comparePassword(password);
+  if (!passwordismatch) {
+    throw new BadRequestError('invalid password')
+  }
+  const usernameAndEmail = { username: user.username, Email: user.Email }
 
-  console.log(req.session)
+  const tokenUser = { createdAt: user.createdAt, userId: user._id }
 
-  res.status(StatusCodes.OK).json({ status: "success", user })
+  cookiesutils.attachCookiesToRes(res, tokenUser)
+
+  res.status(StatusCodes.OK).json({ status: "success", user: usernameAndEmail })
 }
 
 
@@ -33,14 +43,26 @@ const createsignupuser = async (req, res) => {
   if (password !== confirmPassword) {
     throw new BadRequestError('password does not match')
   }
-  // to check if the email is in use, but in this project we will use the schema instead
+  // to check if the email is in use, but in this project we will use the mongoose schema instead
   // const emailAlreadyExists = await User.findOne({ Email })
   // if (emailAlreadyExists) {
   //   throw new BadRequestError('email already exists')
   // }
   const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username })
+  const usernameAndEmail = { username, Email }
+  const tokenUser = { createdAt: person.createdAt, userId: person._id }
 
-  return res.status(StatusCodes.CREATED).json({ status: 'success', user: person })
+  // const token = await jwt.sign(tokenUser, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
+
+  // const token = jwts.signtoken({ payload: tokenUser }) to create jwt token
+
+  // const oneDay = 86400
+
+  // res.cookie('cookieYaKwanza', token, { expires: new Date(Date.now() + oneDay), httpOnly: true })
+
+  cookiesutils.attachCookiesToRes(res, tokenUser)
+
+  return res.status(StatusCodes.CREATED).json({ status: 'success', user: usernameAndEmail })
 }
 
 const logout = async (req, res) => {
