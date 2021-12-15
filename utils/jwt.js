@@ -6,12 +6,12 @@ const signtoken = ({ payload }) => {
     return token
 }
 
-const verifytoken = async (token) => {
-    try {
-        return await jwt.verify(token, process.env.JWT_SECRET)
-    } catch (error) {
-        CustomErrors.BadRequestError('could not verify token')
-    }
+const verifytoken = (token) => {
+    // try {
+    return jwt.verify(token, process.env.JWT_SECRET)
+    // } catch (error) {
+    //     CustomErrors.BadRequestError('could not verify token')
+    // }
 }
 
 module.exports = { signtoken, verifytoken }

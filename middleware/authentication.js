@@ -1,17 +1,25 @@
 const { StatusCodes } = require('http-status-codes')
 const CustomErrors = require('../errors')
+const utils = require('../utils')
 
-const authentication = (req, res, next) => {
+const authentication = async (req, res, next) => {
     const token = req.signedCookies.cookieYaKwanza
+    console.log(token)
 
     if (!token) {
-        console.log('cookie not present')
+        throw new CustomErrors.BadRequestError('Invalid Authentication')
     }
     else {
-        console.log('present cookie')
+        try {
+            const payload = await utils.verifytoken(token)
+            req.user = { role: payload.role, userId: payload.userId, username: payload.username }
+            next()
+        } catch (error) {
+            throw new CustomErrors.BadRequestError('Invalid authentication')
+        }
     }
 
-    next()
+
 }
 
 module.exports = { authentication }

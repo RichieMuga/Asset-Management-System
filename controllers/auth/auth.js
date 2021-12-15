@@ -24,13 +24,13 @@ const login = async (req, res) => {
   if (!passwordismatch) {
     throw new BadRequestError('invalid password')
   }
-  const usernameAndEmail = { username: user.username, Email: user.Email }
+  // const usernameAndEmail = { username: user.username, Email: user.Email }
 
-  const tokenUser = { createdAt: user.createdAt, userId: user._id }
+  const tokenUser = { role: user.role, userId: user._id, username: user.username }
 
   cookiesutils.attachCookiesToRes(res, tokenUser)
 
-  res.status(StatusCodes.OK).json({ status: "success", user: usernameAndEmail })
+  res.status(StatusCodes.OK).json({ status: "success", user: tokenUser })
 }
 
 
@@ -49,8 +49,8 @@ const createsignupuser = async (req, res) => {
   //   throw new BadRequestError('email already exists')
   // }
   const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username })
-  const usernameAndEmail = { username, Email }
-  const tokenUser = { role: person.role, userId: person._id, Firstname: person.Firstname }
+  // const usernameAndEmail = { username, Email }
+  const tokenUser = { role: person.role, userId: person._id, username: person.username }
 
   // const token = await jwt.sign(tokenUser, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
 
@@ -62,7 +62,7 @@ const createsignupuser = async (req, res) => {
 
   cookiesutils.attachCookiesToRes(res, tokenUser)
 
-  return res.status(StatusCodes.CREATED).json({ status: 'success', user: usernameAndEmail })
+  return res.status(StatusCodes.CREATED).json({ status: 'success', user: tokenUser })
 }
 
 const logout = async (req, res) => {
