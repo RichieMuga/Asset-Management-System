@@ -10,6 +10,7 @@ const pagenotfound = require('./middleware/pagenotfound')
 const auth = require('./routers/auth/auth')
 const users = require('./routers/navigation/usersRouters')
 const navigation = require('./routers/navigation/navigation')
+const assets = require('./routers/AssetDetails/assetDetails/Routers')
 
 //npm packages
 const morgan = require('morgan')
@@ -30,9 +31,12 @@ app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
 //routes
+//user routes
 app.use('/', navigation)
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/users', users)
+//assets routes
+app.use('/api/v1/assets',asset)
 
 
 //error message if page is not found

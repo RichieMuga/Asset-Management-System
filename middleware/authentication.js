@@ -1,10 +1,8 @@
-const { StatusCodes } = require('http-status-codes')
 const CustomErrors = require('../errors')
 const utils = require('../utils')
 
 const authentication = async (req, res, next) => {
     const token = req.signedCookies.cookieYaKwanza
-    console.log(token)
 
     if (!token) {
         throw new CustomErrors.BadRequestError('Invalid Authentication')
@@ -18,8 +16,16 @@ const authentication = async (req, res, next) => {
             throw new CustomErrors.BadRequestError('Invalid authentication')
         }
     }
-
-
 }
 
-module.exports = { authentication }
+const authorizePermission = (...roles) => {
+   return(req,res,next)=>{
+        if (roles.includes(req.user.role)) {
+        throw new CustomErrors.UnauthorizedError('Cannot access page unauthorized permission')
+    }
+    next()
+   }
+}
+
+
+module.exports = { authentication, authorizePermission }

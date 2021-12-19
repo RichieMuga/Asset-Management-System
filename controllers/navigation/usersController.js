@@ -5,9 +5,6 @@ const User = require('../../model/user-credentials/userAccounts')
 const cookiesutils = require('../../utils')
 require('dotenv').config()
 
-const showCurrentUsers = (req, res) => {
-    res.send('all current users')
-}
 const getSingleUser = async (req, res) => {
     const { id: userId } = req.params
     const user = await User.findOne({ _id: userId }).select('-password')
@@ -27,4 +24,4 @@ const getAllUsers = async (req, res) => {
     res.status(StatusCodes.OK).json({ users })
 }
 
-module.exports = { getSingleUser, updateUser, updateUserPassword, showCurrentUsers, getAllUsers }
+module.exports = { getSingleUser, updateUser, updateUserPassword, getAllUsers }
