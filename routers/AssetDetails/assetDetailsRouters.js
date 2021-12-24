@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { getAllAssets,getSingleAssets,createAsset,deleteAssets,updateAsset,editAsset } = require('../../controllers/AssetDetails/assetDetailsControllers')
+const { getAllAssets, getSingleAssets, createAsset, deleteAssets, updateAsset, editAsset } = require('../../controllers/AssetDetails/assetDetailsControllers')
+const { authentication } = require('../../middleware/authentication')
 
-router.route('/').get(getAllAssets).post(createAsset)
-router.route('/:id').get(getSingleAssets).patch(updateAsset).delete(deleteAssets)
+router.route('/').get(authentication, getAllAssets).post(authentication, createAsset).patch(editAsset)
+router.route('/:id').get(authentication, getSingleAssets).patch(authentication, updateAsset).delete(authentication, deleteAssets)
 
 
 module.exports = router

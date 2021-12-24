@@ -10,7 +10,7 @@ const authentication = async (req, res, next) => {
     else {
         try {
             const payload = await utils.verifytoken(token)
-            req.user = { role: payload.role, userId: payload.userId, username: payload.username }
+            req.user = { role: payload.role, userId: payload.userId, Firstname: payload.Firstname, Lastname: payload.Lastname }
             next()
         } catch (error) {
             throw new CustomErrors.BadRequestError('Invalid authentication')
@@ -19,12 +19,12 @@ const authentication = async (req, res, next) => {
 }
 
 const authorizePermission = (...roles) => {
-   return(req,res,next)=>{
-        if (roles.includes(req.user.role)) {
-        throw new CustomErrors.UnauthorizedError('Cannot access page unauthorized permission')
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            throw new CustomErrors.UnauthorizedError('Cannot access page unauthorized permission')
+        }
+        next()
     }
-    next()
-   }
 }
 
 

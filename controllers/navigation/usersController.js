@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes')
 const CustomErrors = require('../../errors')
-const { findOne } = require('../../model/user-credentials/userAccounts')
+const { findOne, findOneAndUpdate } = require('../../model/user-credentials/userAccounts')
 const User = require('../../model/user-credentials/userAccounts')
 const cookiesutils = require('../../utils')
 require('dotenv').config()
@@ -13,8 +13,26 @@ const getSingleUser = async (req, res) => {
     }
     res.status(StatusCodes.OK).json({ user })
 }
-const updateUserPassword = (req, res) => {
-    res.send('update password')
+const updateUserPassword = async (req, res) => {
+    const { oldPassword, newPassword } = req.body
+    if (!oldPassword && newPassword) {
+        throw new CustomErrors.UnauthenticatedError('Invalid credentials')
+    }
+
+    const { userId } = req.user
+    const user = await User.findOneAndUpdate({ userId })
+
+    const isPassword = await user.comparePassword(oldPassword)
+
+    if (!isPassword) {
+        throw new CustomErrors.UnauthenticatedError('please provide matching password')
+    }
+
+    user.password = newPassword
+
+    await user.save()
+
+    res.status(StatusCodes.OK).json({ msg: "password updated" })
 }
 const updateUser = (req, res) => {
     res.send('update user')
@@ -23,5 +41,9 @@ const getAllUsers = async (req, res) => {
     const users = await User.find({ role: 'user' }).select('-password')
     res.status(StatusCodes.OK).json({ users })
 }
+const showmeCurrentUser = async (req, res) => {
+    const { Firstname, Lastname } = req.user
+    res.status(StatusCodes.OK).json({ user: { Firstname, Lastname } })
+}
 
-module.exports = { getSingleUser, updateUser, updateUserPassword, getAllUsers }
+module.exports = { getSingleUser, updateUser, updateUserPassword, getAllUsers, showmeCurrentUser }
