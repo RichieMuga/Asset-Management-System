@@ -10,11 +10,12 @@ const AssetDetailsSchema = new mongoose.Schema({
     Type: {
         type: String,
         enum: ['monitor', 'keyboard', 'mouse', 'projector', 'laptop', 'desktop', 'printer', 'tv'],
-        required: [true, 'Kindly enter an assset type ']
+        required: [false, 'Kindly enter an assset type ']
     },
     TagNumber: {
         type: String,
-        required: [true, 'Kindly enter a tag number']
+        required: [true, 'Kindly enter a tag number'],
+        unique: true
     },
     Warranty: {
         type: Boolean,
@@ -22,7 +23,8 @@ const AssetDetailsSchema = new mongoose.Schema({
     },
     AssetSn: {
         type: String,
-        required: [true, 'Please provide serial number']
+        required: [true, 'Please provide serial number'],
+        unique: true
     },
     EmployeeNumber: {
         type: String,
@@ -31,15 +33,18 @@ const AssetDetailsSchema = new mongoose.Schema({
     Model: {
         type: String,
     },
-    Address:{
-        type:String,
-        required:[true,'Please enter address']
+    Address: {
+        type: String,
+        required: [false, 'Please enter address']
     },
-    createdAt: {
-        type: Date,
-        default: Date.now()
-    }
-})
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+},
+    { timestamps: true }
+)
 
 
 module.exports = mongoose.model('AssetDetails', AssetDetailsSchema)

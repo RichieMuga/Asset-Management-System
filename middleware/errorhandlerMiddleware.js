@@ -1,6 +1,9 @@
 
 const { StatusCodes } = require('http-status-codes')
 const errorHandlerMiddleware = (err, req, res, next) => {
+    // console.log(err)
+    // res.status(err.statusCode).json({ err })
+    // next()
     let customError = {
         // set default
         statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
@@ -27,6 +30,10 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         customError.msg = `No item found with id : ${err.value}`
         customError.statusCode = StatusCodes.NOT_FOUND
     }
+    // if (err.name === 'RangeError') {
+    //     customError.msg = `resource requested has been temporarily moved,error:  ${err.value}`
+    //     customError.statusCode = StatusCodes.MOVED_TEMPORARILY
+    // }
 
     return res.status(customError.statusCode).json({ msg: customError.msg })
 }

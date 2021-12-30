@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken')
-const CustomErrors = require('../errors/index')
+// const CustomErrors = require('../errors/index')
 
-const signtoken = ({ payload }) => {
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
-    return token
-}
+// const signtoken = ({ payload }) => {
+//     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
+//     return token
+// }
 
 const verifytoken = (token) => {
     // try {
@@ -14,4 +14,4 @@ const verifytoken = (token) => {
     // }
 }
 
-module.exports = { signtoken, verifytoken }
+module.exports = { verifytoken }

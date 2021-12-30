@@ -34,6 +34,10 @@ const UserSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
+    company: {
+        type: String,
+        required: [true, "please provide company name"]
+    },
     createdAt: {
         type: Date,
         default: Date.now()

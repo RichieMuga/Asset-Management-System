@@ -35,8 +35,8 @@ const login = async (req, res) => {
 
 
 const createsignupuser = async (req, res) => {
-  const { Firstname, Lastname, Email, password, confirmPassword, username, role } = req.body
-  if (!Firstname || !Lastname || !Email || !password || !confirmPassword || !username) {
+  const { Firstname, Lastname, Email, password, confirmPassword, username, role, company } = req.body
+  if (!Firstname || !Lastname || !Email || !password || !confirmPassword || !username || !company) {
     throw new UnauthenticatedError("please provide appropriate credentials")
   }
 
@@ -48,7 +48,7 @@ const createsignupuser = async (req, res) => {
   // if (emailAlreadyExists) {
   //   throw new BadRequestError('email already exists')
   // }
-  const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username, role })
+  const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username, role, company })
   // const usernameAndEmail = { username, Email }
   const tokenUser = { role: person.role, userId: person._id, username: person.username }
 
