@@ -26,6 +26,7 @@ li {
   list-style: none;
   margin: 0%;
   padding: 0%;
+  text-decoration: none;
 }
 a {
   text-decoration: none;
@@ -458,6 +459,7 @@ a {
           border-right: 24px solid $font-white;
           border-bottom: 13px solid transparent;
           border-left: transparent;
+          cursor: pointer;
         }
         .show-more {
           display: block;

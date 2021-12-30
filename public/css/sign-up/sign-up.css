@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+body {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  width: 20em;
+  height: 2em;
+  border-radius: 7px;
+  border-style: groove;
+  background-color: transparent;
+}
+
+.menu-nav {
+  background: #286681;
+  text-align: center;
+  padding: .7em 0;
+}
+
+section h1 {
+  color: #286681;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sign-up-parent {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.sign-up-parent h2 {
+  text-align: center;
+  color: #286681;
+}
+
+.sign-up-parent .child-1-sign-up-google {
+  margin: 0 auto;
+}
+
+.sign-up-parent .child-1-sign-up-google button {
+  position: relative;
+  top: 7em;
+  background: #286681;
+  width: 20em;
+  height: 4em;
+}
+
+.sign-up-parent .child-1-sign-up-google button img {
+  width: 3em;
+  height: 3em;
+  position: relative;
+  top: .5em;
+  left: -8em;
+}
+
+.sign-up-parent .child-1-sign-up-google button h2 {
+  margin: 0;
+  margin-left: 1.5em;
+  position: relative;
+  bottom: 1.5em;
+  color: white;
+}
+
+.sign-up-parent .child-1-sign-up-google button:hover {
+  cursor: pointer;
+  background: #538fa8;
+}
+
+.sign-up-parent .child-1-sign-up-google p {
+  position: relative;
+  top: 7em;
+  left: 4em;
+}
+
+.sign-up-parent .child-1-sign-up-google .or {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #286681;
+}
+
+.sign-up-form {
+  width: 30%;
+  margin-left: 10em;
+}
+
+.sign-up-submit {
+  background: #286681;
+  font-weight: 600;
+  margin-left: 6.9em;
+  width: 7em;
+}
+
+.sign-up-submit:hover {
+  background: #538fa8;
+  cursor: pointer;
+}
+
+button,
+button:focus,
+button:active {
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 31%;
+  margin-top: 2em;
+  height: 3em;
+  border-radius: 10px;
+  color: white;
+  margin-left: 4.4em;
+}
+
+#alert-message {
+  display: none;
+  color: indianred;
+}
+/*# sourceMappingURL=sign-up.css.map */

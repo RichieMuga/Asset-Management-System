@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap")
+$base-color: rgb(40, 102, 129)
+$hover: rgb(83, 143, 168)
+$secondary-color: rgb(137, 214, 251)
+$background-color: #ffffff
+$font-white: rgb(255, 255, 255)
+$font-black: rgb(0, 0, 0)
+
+body
+    padding: 0
+    margin: 0
+input
+    width: 20em
+    height: 2em
+    // box-shadow: 0
+    border-radius: 7px
+    border-style: groove
+    background-color: transparent
+.menu-nav
+    background: $base-color
+    text-align: center
+    padding: .7em 0
+section
+    h1
+        color: $base-color
+        font-weight: 600
+        display: flex
+        justify-content: center
+.sign-up-parent
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    h2
+        text-align: center
+        color: $base-color
+    .child-1-sign-up-google
+        margin: 0 auto
+        button
+            position: relative
+            top: 7em
+            background: $base-color
+            width: 20em
+            height: 4em
+            img
+                width: 3em
+                height: 3em
+                position: relative
+                top: .5em
+                left: -8em
+            h2
+                margin: 0
+                margin-left: 1.5em
+                position: relative
+                bottom: 1.5em
+                color: $font-white
+        button:hover
+            cursor: pointer
+            background: $hover
+        p
+            position: relative
+            top: 7em
+            left: 4em
+        .or
+            position: absolute
+            left: 50%
+            top: 50%
+            color: $base-color
+.sign-up-form
+    width: 30%
+    margin-left: 10em
+.sign-up-submit
+    background: $base-color
+    font-weight: 600
+    margin-left: 6.9em
+    width: 7em
+.sign-up-submit:hover
+    background: $hover
+    cursor: pointer
+
+button,
+button:focus,
+button:active
+    border: none
+    outline: none
+    padding: 0
+    width: 31%
+    margin-top: 2em
+    height: 3em
+    border-radius: 10px
+    color: $font-white
+    margin-left: 4.4em
+#alert-message
+    display: none
+    color: rgb(205, 92, 92)
