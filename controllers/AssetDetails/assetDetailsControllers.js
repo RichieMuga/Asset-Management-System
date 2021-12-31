@@ -30,12 +30,18 @@ const getSingleAssets = async (req, res) => {
     req.body.user = req.user.userId;
     const { id: assetId } = req.params
     const asset = await AssetDetails.findOne({ _id: assetId })
+    if (!asset) {
+        throw new CustomError.BadRequestError(`Could not find asset with ${assetId}`)
+    }
     res.status(StatusCodes.OK).json({ asset })
     // res.send('get single asset')
 }
 const updateAsset = async (req, res) => {
     req.body.user = req.user.userId;
     const { user: { userId }, params: { id: assetId }, body: { AssetName, TagNumber, AssetSn, EmployeeNumber, Model, Address, Warranty, Type } } = req
+    if (AssetName === '' || TagNumber === '' || AssetSn === '' || EmployeeNumber === '' || Address === '') {
+        throw new CustomError.BadRequestError('Cannot leave fields as blank')
+    }
     const asset = await AssetDetails.findByIdAndUpdate({ _id: assetId, user: userId }, { AssetName, TagNumber, AssetSn, EmployeeNumber, Model, Address, Warranty, Type }, { runValidators: true, new: true })
     res.status(StatusCodes.OK).json({ asset })
 }

@@ -17,14 +17,9 @@
     "express-async-errors": "^3.1.1",
     "http-status-codes": "^2.1.4",
     "ityped": "^1.0.3",
-<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.7",
     "morgan": "^1.10.0"
-=======
-    "mongoose": "^6.0.12",
-    "pug": "^3.0.2"
->>>>>>> master
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
