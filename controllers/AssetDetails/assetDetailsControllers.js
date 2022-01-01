@@ -8,7 +8,19 @@ require('dotenv').config()
 
 const getAllAssets = async (req, res) => {
     req.body.user = req.user.userId;
-    const asset = await AssetDetails.find({})
+    const { sort } = req.query
+    const reqQueryObject = {}
+    let result = AssetDetails.find(reqQueryObject)
+    if (sort) {
+        const sortList = sort.split(',').join(' ')
+        result = result.sort(sortList)
+    }
+    else {
+        result = result.sort('createdAt')
+    }
+
+    const assetResult = await result
+
     //to make sure the assets of the same one company appear
     res.status(StatusCodes.OK).json({ asset, count: asset.length })
 
@@ -49,6 +61,9 @@ const deleteAssets = async (req, res) => {
     req.body.user = req.user.userId;
     const { user: { userId }, params: { id: assetId } } = req
     const asset = await AssetDetails.findOneAndRemove({ _id: assetId, user: userId })
+    if (!asset) {
+        throw new CustomError.BadRequestError('Something went wrong, try again later')
+    }
     res.status(StatusCodes.OK).json({ asset })
 }
 // const editAsset = async (req, res) => {
