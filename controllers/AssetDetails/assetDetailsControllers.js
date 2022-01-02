@@ -8,8 +8,23 @@ require('dotenv').config()
 
 const getAllAssets = async (req, res) => {
     req.body.user = req.user.userId;
-    const { sort } = req.query
+    const { sort, Warranty, Type, Model, Address, fields } = req.query
     const reqQueryObject = {}
+    if (Warranty) {
+        reqQueryObject.Warranty = Warranty === 'true' ? true : false
+    }
+    if (Type) {
+        reqQueryObject.Type = Type
+    }
+    if (Model) {
+        reqQueryObject.Model = Model
+    }
+    if (Address) {
+        reqQueryObject.Address = Address
+    }
+
+
+
     let result = AssetDetails.find(reqQueryObject)
     if (sort) {
         const sortList = sort.split(',').join(' ')
@@ -18,11 +33,15 @@ const getAllAssets = async (req, res) => {
     else {
         result = result.sort('createdAt')
     }
+    if (fields) {
+        const fieldsList = fields.split(',').join(' ')
+        result = result.select(fieldsList)
+    }
 
     const assetResult = await result
 
     //to make sure the assets of the same one company appear
-    res.status(StatusCodes.OK).json({ asset, count: asset.length })
+    res.status(StatusCodes.OK).json({ assetResult, count: assetResult.length })
 
 }
 const createAsset = async (req, res) => {
