@@ -24,7 +24,6 @@ const getAllAssets = async (req, res) => {
     }
 
 
-
     let result = AssetDetails.find(reqQueryObject)
     if (sort) {
         const sortList = sort.split(',').join(' ')
@@ -37,6 +36,12 @@ const getAllAssets = async (req, res) => {
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
     }
+
+    const limit = Number(req.query.limit) || 10
+    const page = Number(req.query.page) || 1
+    const skip = Number(page - 1) * limit
+
+    result = result.skip(skip).limit(limit)
 
     const assetResult = await result
 
