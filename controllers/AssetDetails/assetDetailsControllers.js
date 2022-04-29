@@ -10,6 +10,7 @@ const getAllAssets = async (req, res) => {
     req.body.user = req.user.userId;
     const { sort, Warranty, Type, Model, Address, fields } = req.query
     const reqQueryObject = {}
+    //
     if (Warranty) {
         reqQueryObject.Warranty = Warranty === 'true' ? true : false
     }
@@ -23,7 +24,7 @@ const getAllAssets = async (req, res) => {
         reqQueryObject.Address = Address
     }
 
-
+    //sort
     let result = AssetDetails.find(reqQueryObject)
     if (sort) {
         const sortList = sort.split(',').join(' ')
@@ -36,7 +37,7 @@ const getAllAssets = async (req, res) => {
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
     }
-
+    //pagination
     const limit = Number(req.query.limit) || 10
     const page = Number(req.query.page) || 1
     const skip = Number(page - 1) * limit

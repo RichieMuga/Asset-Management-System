@@ -1,12 +1,17 @@
 import IntroductionSection from "./LandingPageSmallerSections/introductionSection"
-import servicesPageSection from "./LandingPageSmallerSections/servicesPageSection"
-import testimonialsSection from "./LandingPageSmallerSections/testimonialsSection"
-import faqSection from "./LandingPageSmallerSections/faqSection"
+import ServicesPageSection from "./LandingPageSmallerSections/servicesPageSection"
+import TestimonialsSection from "./LandingPageSmallerSections/testimonialsSection"
+import Message from "./LandingPageSmallerSections/message"
+import FaqSection from "./LandingPageSmallerSections/faqSection"
+import Wrapper from "../assets/css/Landing"
 const Landing = () => {
     return (
         <>
-            <div>Landing</div>
             <IntroductionSection />
+            <ServicesPageSection />
+            {/* <TestimonialsSection /> */}
+            <FaqSection />
+            <Message />
         </>
     )
 }

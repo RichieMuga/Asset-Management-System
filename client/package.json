@@ -12,6 +12,7 @@
     "react-ityped": "^1.0.2",
     "react-scripts": "5.0.1",
     "react-typed": "^1.2.0",
+    "styled-components": "^5.3.5",
     "typed.js": "^2.0.12",
     "web-vitals": "^2.1.4"
   },
