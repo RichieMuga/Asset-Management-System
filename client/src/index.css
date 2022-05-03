@@ -18,21 +18,4 @@ h5 {
   margin: 0;
   font-family: "Times New Roman", Times, serif;
 }
-
-button {
-  background-color: #4D4A91;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #837DF5;
-  color: #FFFAFA;
-}
 /*# sourceMappingURL=index.css.map */

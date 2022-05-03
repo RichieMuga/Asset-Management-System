@@ -1,14 +1,14 @@
 import React from 'react'
 import services from '../../assets/images/ShowService.png'
+import Wrapper from '../../assets/css/LandingPageSmallerSectionCss/serviceSectioncss'
 const ServicesPageSection = () => {
   return (
-    <>
+    <Wrapper>
       <div className="service-head">
         <h1 className="head-service">Services</h1>
       </div>
       <div className="services-page">
-        <div className="services-page-child-1"></div>
-        <div className="services-page-child-2">
+        <div className="services-page-child-1">
           <ul>
             <li>
               <p>
@@ -31,19 +31,13 @@ const ServicesPageSection = () => {
                 officiis itaque.
               </p>
             </li>
-            <li>
-              <p>
-                voluptatibus exercitationem, veniam fuga dolores eos nemo corrupti
-                recusandae nostrum aliquam!
-              </p>
-            </li>
           </ul>
         </div>
-        <div className="services-page-child-3">
+        <div className="services-page-child-2">
           <img src={services} alt="services" />
         </div>
       </div>
-    </>
+    </Wrapper>
   )
 }
 
