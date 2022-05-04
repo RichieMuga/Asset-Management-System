@@ -12,16 +12,14 @@ const Wrapper = styled.div`
 .services-page {
   display: flex;
   flex-direction:row;
-  overflow: hidden;
-  // display: flex;
   height: 100%;
   // .services-page-child-1 {
   // }
   .services-page-child-1 {
-    padding: 0 5em;
+    padding: 0 8.5em 0 2em;
     p {
       color: $font-black;
-      font-size: 1.4em;
+      font-size: 1.2em;
       line-height: 1.7;
     }
     ul {
@@ -31,11 +29,7 @@ const Wrapper = styled.div`
     }
   }
   .services-page-child-2 {
-    img {
-      position: relative;
-      right: 0;
-      justify-content: left;
-    }
+    padding: 0 2em;
   }
 }
 `

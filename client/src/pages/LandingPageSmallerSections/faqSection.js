@@ -1,73 +1,44 @@
 import React from 'react'
+import Wrapper from '../../assets/css/LandingPageSmallerSectionCss/faqSectioncss'
+// import FaqComponent from '../../components/faqComponent'
+import { useState } from 'react'
+import faqList from '../../utils/faqs'
+
+
 
 const FaqSection = () => {
+
+    // const ref = React.createRef();
+    const [faqs, setFaqs] = useState([...faqList]);
+
+    const toggleHandler = (e) => {
+        e.preventDefault()
+        // console.log("e? ", e.target.id);
+        const temp = [...faqList];
+        temp[e.target.id].chosen = !temp[e.target.id].chosen;
+        setFaqs([...temp]);
+    }
     return (
-        <>
+        <Wrapper>
             <div className="faq-container">
                 <h1 className="faqs-header" style={{ color: "rgb(40, 102, 129)" }}>FAQs</h1>
                 <div className="list-container">
                     <ul>
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Asperiores, eius!
-                            </p>
-
-                            <button className="toggle-more-btn"></button>
-                            <p className="faq-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                sapiente ab nemo, eligendi dicta distinctio? Dolor, aut enim
-                                autem, iste illum nam quibusdam mollitia illo quia quasi
-                                voluptatem sit incidunt.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa,
-                                minus?
-                            </p>
-                            <button className="toggle-more-btn"></button>
-                            <p className="faq-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                sapiente ab nemo, eligendi dicta distinctio? Dolor, aut enim
-                                autem, iste illum nam quibusdam mollitia illo quia quasi
-                                voluptatem sit incidunt.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum,
-                                doloremque?
-                            </p>
-
-                            <button className="toggle-more-btn"></button>
-                            <p className="faq-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                sapiente ab nemo, eligendi dicta distinctio? Dolor, aut enim
-                                autem, iste illum nam quibusdam mollitia illo quia quasi
-                                voluptatem sit incidunt.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                                doloremque.
-                            </p>
-
-                            <button className="toggle-more-btn"></button>
-                            <p className="faq-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                sapiente ab nemo, eligendi dicta distinctio? Dolor, aut enim
-                                autem, iste illum nam quibusdam mollitia illo quia quasi
-                                voluptatem sit incidunt.
-                            </p>
-                        </li>
+                        {faqs.map((faq) => {
+                            const { id, question, answer, chosen } = faq
+                            return (
+                                <li key={id}>
+                                    <p>{question}</p>
+                                    {/* <button className="toggle-more-btn" onClick={toggleHandler}></button> */}
+                                    <button className={`toggle-more-btn${chosen ? " rotate-btn" : ""}`} id={id} onClick={toggleHandler}></button>
+                                    <p className={`faq-text${chosen ? " show-more" : ""}`}>{answer}</p>
+                                </li>
+                            )
+                        })}
                     </ul>
-                    {/* to add faq btn functionality */}
-                    {/* <script src="./js-frontend/faq-button.js"></script> */}
                 </div>
             </div>
-        </>
+        </Wrapper>
     )
 }
 

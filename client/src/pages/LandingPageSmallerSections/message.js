@@ -5,22 +5,22 @@ const Message = () => {
         <>
             <div className="parent-msg">
                 <div className="grid-msg-container">
-                    <div classNameName="grid-msg-1">
+                    <div className="grid-msg-1">
                         <h2>Do you have any queries? suggestions and/ or messages?</h2>
                     </div>
                     <div className="grid-msg-2">
                         <section className="name-email">
-                            <label for="Name">
+                            <label htmlFor="Name">
                                 <h3>Name</h3>
                                 <input type="text" id="Name" />
                             </label>
-                            <label for="Email">
+                            <label htmlFor="Email">
                                 <h3>Email</h3>
                                 <input type="text" id="Email" />
                             </label>
                         </section>
                         <section className="message-box">
-                            <label for="Message">
+                            <label htmlFor="Message">
                                 <h3>Message</h3>
                                 <textarea id="Message" name="story" rows="2" cols="33">
                                 </textarea>

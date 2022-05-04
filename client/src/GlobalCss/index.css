@@ -19,7 +19,7 @@ h5 {
   font-family: "Times New Roman", Times, serif;
 }
 
-button {
+.btn-purple {
   background-color: #4D4A91;
   border: none;
   color: white;
@@ -30,9 +30,15 @@ button {
   border-radius: 5px;
 }
 
-button:hover {
+.btn-purple:hover {
   cursor: pointer;
   background-color: #837DF5;
   color: #FFFAFA;
+}
+
+.rotate-btn {
+  rotate: -90deg;
+  -webkit-transition: ease-in-out;
+  transition: ease-in-out;
 }
 /*# sourceMappingURL=index.css.map */

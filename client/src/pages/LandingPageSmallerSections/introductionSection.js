@@ -55,15 +55,15 @@ const IntroductionSection = () => {
                 </div>
                 <div className="introduction-child-2">
                     <h2>WANT TO BETTER MANAGE YOUR COMPANY’S ASSETS?</h2>
-                    <p style={{ "font-size": "1.2em" }} >
+                    <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
                         dolorum, ipsum dolorem molestias rerum consectetur excepturi veniam
                         provident perspiciatis sed adipisci earum alias reprehenderit
                     </p>
-                    <button type='submit'>Login/SignUp</button>
+                    <button className='btn-purple' type='submit'>Login/SignUp</button>
 
                 </div>
-                <div class="downArrow">
+                <div className="downArrow">
                     <FaAngleDoubleDown />
                 </div>
             </div>
