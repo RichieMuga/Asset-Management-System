@@ -4,9 +4,9 @@ const Wrapper = styled.div`
 .service-head {
   text-align: center;
   margin-top: 1em;
-  color: $base-color;
-  font-size: 1.2em;
+  margin-bottom: 1.5em;
   color: rgb(40, 102, 129);
+  font-size: 2rem;
 }
 //services page
 .services-page {
@@ -16,9 +16,9 @@ const Wrapper = styled.div`
   // .services-page-child-1 {
   // }
   .services-page-child-1 {
-    padding: 0 8.5em 0 2em;
+    padding: 0 5em 0 2em;
     p {
-      color: $font-black;
+      color: black;
       font-size: 1.2em;
       line-height: 1.7;
     }
@@ -30,6 +30,9 @@ const Wrapper = styled.div`
   }
   .services-page-child-2 {
     padding: 0 2em;
+    img{
+      width:80em;
+    }
   }
 }
 `

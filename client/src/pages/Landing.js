@@ -3,7 +3,7 @@ import ServicesPageSection from "./LandingPageSmallerSections/servicesPageSectio
 import TestimonialsSection from "./LandingPageSmallerSections/testimonialsSection"
 import Message from "./LandingPageSmallerSections/message"
 import FaqSection from "./LandingPageSmallerSections/faqSection"
-import Wrapper from "../assets/css/Landing"
+// import Wrapper from "../assets/css/Landing"
 const Landing = () => {
     return (
         <>

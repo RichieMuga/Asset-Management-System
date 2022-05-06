@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 const Wrapper = styled.div`
+.faqs-header {
+  color: rgb(40, 102, 129);
+  font-size: 2rem;
+  text-align: center;
+}
 .faq-container {
   width: 100%;
-  margin: 10em 0;
+  margin: 5em 0;
   height: auto;
   color: black;
   text-align: center;
@@ -10,13 +15,8 @@ const Wrapper = styled.div`
     height: fit-content;
     margin: 0 auto;
     width: 90%;
-    .faqs-header {
-      color: rgb(40, 102, 129);
-      font-size: 2.5em;
-      text-align: center;
-    }
     ul {
-      margin: 2em 0;
+      margin: 1em 0;
       padding: 0;
       text-align: left;
       background: rgb(40, 102, 129);
@@ -27,6 +27,8 @@ const Wrapper = styled.div`
         flex-wrap: wrap;
         flex-direction: row;
         border-color: white;
+        padding: 1em 0;
+        padding-top: 1em;
         button {
           margin-left: auto;
           margin-right: 1em;
@@ -42,14 +44,16 @@ const Wrapper = styled.div`
         }
         .show-more {
           display: block;
-          transition: 500ms;
+          transition-delay: 500ms;
+          background-color: white;
         }
         .rotate-btn {
-          rotate: -90deg;
-          transition: ease-in-out;
+          transform: rotate(-90deg);
+          transition: 500ms;
         }
         p {
           padding-left: 2em;
+          background: transparent;
         }
       }
       li:first-child {
@@ -61,7 +65,7 @@ const Wrapper = styled.div`
         page-break-after: always;
         display: none;
         border-style: solid;
-        border-color: rgb(40, 102, 129);
+        border-color: rgb(83, 143, 168);
         background: $background-color;
         padding: 0.5em 3em;
       }
