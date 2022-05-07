@@ -3,6 +3,8 @@ import ServicesPageSection from "./LandingPageSmallerSections/servicesPageSectio
 import TestimonialsSection from "./LandingPageSmallerSections/testimonialsSection"
 import Message from "./LandingPageSmallerSections/message"
 import FaqSection from "./LandingPageSmallerSections/faqSection"
+import Header from "./Header"
+import Footer from "./Footer"
 // import Wrapper from "../assets/css/Landing"
 const Landing = () => {
     return (
@@ -12,6 +14,7 @@ const Landing = () => {
             {/* <TestimonialsSection /> */}
             <FaqSection />
             <Message />
+            <Footer />
         </>
     )
 }
