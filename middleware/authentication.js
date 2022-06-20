@@ -13,7 +13,7 @@ const authentication = async (req, res, next) => {
             req.user = { role: payload.role, userId: payload.userId, Firstname: payload.Firstname, Lastname: payload.Lastname, company: payload.company }
             next()
         } catch (error) {
-            throw new CustomErrors.BadRequestError('Invalid authentication')
+            throw new CustomErrors.BadRequestError('Invalid authentication2')
         }
     }
 }
