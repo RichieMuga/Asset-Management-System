@@ -26,10 +26,6 @@ const AssetDetailsSchema = new mongoose.Schema({
         required: [true, 'Please provide serial number'],
         unique: true
     },
-    EmployeeNumber: {
-        type: String,
-        required: [true, 'Please enter employee Id']
-    },
     Model: {
         type: String,
     },
@@ -42,6 +38,11 @@ const AssetDetailsSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    employeeId: {
+        type: String,
+        ref: 'User',
+        required: true
+    }
 },
     { timestamps: true }
 )

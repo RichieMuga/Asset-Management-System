@@ -1,29 +1,23 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const validator = require('validator')
 
 const UserSchema = new mongoose.Schema({
 
-    Firstname: {
-        type: String,
-        min: [2, 'This length is not accepted please try again'],
-        max: 50,
-        required: [true, 'Kindly provide a firstname']
-    },
-    Lastname: {
+    name: {
         type: String,
         min: [2, 'This length is not accepted please try again'],
         max: 50,
         required: [true, 'Kindly enter a lastname']
     },
-    username: {
+    email: {
         type: String,
-        required: [true, 'Kindly enter a username']
-    },
-    Email: {
-        type: String,
-        required: [true, 'Please provide an email'],
-        match: [/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'please provide valid email'],
-        unique: true
+        required: [true, 'please provide email'],
+        validate: {
+            validator: validator.isEmail,
+            message: "please provide valid email"
+        },
+        unique: true,
     },
     password: {
         type: String,
@@ -36,7 +30,11 @@ const UserSchema = new mongoose.Schema({
     },
     company: {
         type: String,
-        required: [true, "please provide company name"]
+        required: [true, "Please enter company name"]
+    },
+    employeeId: {
+        type: String,
+        required: [true, 'Please enter employee Id']
     },
     createdAt: {
         type: Date,

@@ -10,10 +10,10 @@ const authentication = async (req, res, next) => {
     else {
         try {
             const payload = await utils.verifytoken(token)
-            req.user = { role: payload.role, userId: payload.userId, Firstname: payload.Firstname, Lastname: payload.Lastname, company: payload.company }
+            req.user = { role: payload.role, userId: payload.userId, name: payload.name, company: payload.company, employeeId: payload.employeeId }
             next()
         } catch (error) {
-            throw new CustomErrors.BadRequestError('Invalid authentication2')
+            throw new CustomErrors.BadRequestError('Invalid authentication')
         }
     }
 }

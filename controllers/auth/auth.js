@@ -7,15 +7,15 @@ require('dotenv').config()
 
 
 const login = async (req, res) => {
-  const { Email, password } = req.body
+  const { email, password } = req.body
 
   //if password or email or both havent been provided send bad request
-  if (!Email || !password) {
+  if (!email || !password) {
     throw new UnauthenticatedError('invalid credentials')
   }
   //parse through the database to find user email and email that is compatible
   //with the email's password if they are not then return to login page
-  const user = await User.findOne({ Email })
+  const user = await User.findOne({ email })
 
   if (!user) {
     throw new BadRequestError("email doesn't exist")
@@ -26,7 +26,8 @@ const login = async (req, res) => {
   }
   // const usernameAndEmail = { username: user.username, Email: user.Email }
 
-  const tokenUser = { role: user.role, userId: user._id, Firstname: user.Firstname, Lastname: user.Lastname }
+  const tokenUser = { role: user.role, userId: user._id, company: user.company, name: user.name, employeeId: user.employeeId }
+
 
   cookiesutils.attachCookiesToRes(res, tokenUser)
 
@@ -35,22 +36,26 @@ const login = async (req, res) => {
 
 
 const createsignupuser = async (req, res) => {
-  const { Firstname, Lastname, Email, password, confirmPassword, username, role, company } = req.body
-  if (!Firstname || !Lastname || !Email || !password || !confirmPassword || !username || !company) {
+  const { name, email, password, confirmPassword, role, company, employeeId } = req.body
+  if (!name || !email || !password || !confirmPassword || !company || !employeeId) {
     throw new UnauthenticatedError("please provide appropriate credentials")
   }
 
   if (password !== confirmPassword) {
     throw new BadRequestError('password does not match')
   }
+  const userAlreadyHasAccount = await User.findOne({ email })
+  if (userAlreadyHasAccount) {
+    throw new BadRequestError('Email already in use')
+  }
   // to check if the email is in use, but in this project we will use the mongoose schema instead
   // const emailAlreadyExists = await User.findOne({ Email })
   // if (emailAlreadyExists) {
   //   throw new BadRequestError('email already exists')
   // }
-  const person = await User.create({ Firstname, Lastname, Email, password, confirmPassword, username, role, company })
+  const person = await User.create({ name, email, password, confirmPassword, role, company, employeeId })
   // const usernameAndEmail = { username, Email }
-  const tokenUser = { role: person.role, userId: person._id, username: person.username }
+  const tokenUser = { role: person.role, userId: person._id, name: person.name, employeeId: person.employeeId, company: person.company }
 
   // const token = await jwt.sign(tokenUser, process.env.JWT_SECRET, { expiresIn: process.env.JWT_LIFETIME })
 

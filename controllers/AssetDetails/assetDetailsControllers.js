@@ -8,6 +8,7 @@ require('dotenv').config()
 
 const getAllAssets = async (req, res) => {
     req.body.user = req.user.userId;
+    req.body.employeeNumber = req.user.employeeId
     const { sort, Warranty, Type, Model, Address, fields } = req.query
     const reqQueryObject = {}
     //
@@ -52,15 +53,17 @@ const getAllAssets = async (req, res) => {
 }
 const createAsset = async (req, res) => {
     req.body.user = req.user.userId;
-    const { body: { AssetName, TagNumber, AssetSn, EmployeeNumber, Model, Address, Warranty, Type, user }, user: { userId } } = req
-    if (!AssetName || !TagNumber || !AssetSn || !EmployeeNumber || !Address) {
+    req.body.employeeNumber = req.user.employeeId
+    const { body: { AssetName, TagNumber, AssetSn, Model, Address, Warranty, Type }, user: { userId, employeeId } } = req
+    if (!AssetName || !TagNumber || !AssetSn || !Address) {
         throw new CustomError.UnauthenticatedError('please provide appropriate credentials to streamline refrencing in future')
     }
     // another way for doing this
     // user = userId
     // console.log(req.body)
     // const asset = await AssetDetails.create(req.body)
-    const asset = await AssetDetails.create({ AssetName, TagNumber, AssetSn, EmployeeNumber, Model, Address, Warranty, Type, user: userId })
+
+    const asset = await AssetDetails.create({ AssetName, TagNumber, AssetSn, Model, Address, Warranty, Type, user: userId, employeeId: employeeId })
     res.status(StatusCodes.CREATED).json({ asset })
 }
 const getSingleAssets = async (req, res) => {
@@ -87,7 +90,7 @@ const deleteAssets = async (req, res) => {
     const { user: { userId }, params: { id: assetId } } = req
     const asset = await AssetDetails.findOneAndRemove({ _id: assetId, user: userId })
     if (!asset) {
-        throw new CustomError.BadRequestError('Something went wrong, try again later')
+        throw new CustomError.BadRequestError('No such asset in your company')
     }
     res.status(StatusCodes.OK).json({ asset })
 }
